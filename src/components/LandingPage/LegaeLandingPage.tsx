@@ -26,8 +26,27 @@ const LegaeLandingPage: React.FC = () => {
     const [waitlistStep, setWaitlistStep] = useState(1);
     const [agreedToEmails, setAgreedToEmails] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showScrollTop, setShowScrollTop] = useState(false);
 
-    // Removed delayed useEffect
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     const handleWaitlistSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -104,11 +123,25 @@ const LegaeLandingPage: React.FC = () => {
                     <img src={brandLogo} alt="Agape Logo" style={{ height: '7.5rem', width: 'auto', objectFit: 'contain' }} />
                 </div>
                 <ul className="nav-links">
-                    <li><a href="#features">Features</a></li>
+                    <li><a href="#features">About Us</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                 </ul>
                 <div className="nav-actions">
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1200 1200"><path fill="currentColor" d="M0 0v1200h1200V0zm863.232 156.592c8.715-.185 17.791.098 27.173.732c34.476.047 70.483 3.155 106.201 6.299l-3.882 142.09h-95.947c-44.988-.996-61.235 16.473-62.695 67.236V484.57h162.524l-6.445 152.197H834.082v423.706H675.513V636.768H565.43V484.57h110.083V353.906c0-94.209 39.829-154.174 118.286-184.57c20.149-7.928 43.288-12.189 69.433-12.744" /></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
+                        </a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                        </a>
+                    </div>
                     <button className="get-started-btn">Get Started</button>
                 </div>
             </nav>
@@ -153,9 +186,9 @@ const LegaeLandingPage: React.FC = () => {
                         <p>Move your parcels and cargo across town or beyond — Maun to Gaborone and other routes.</p>
                     </div>
                     <div className="feature-card">
-                        <img src={featureImg3} alt="Professional Drivers" />
-                        <h3>Professional Drivers</h3>
-                        <p>We hire trained, responsible drivers to ensure your goods are transported safely and on schedule.</p>
+                        <img src={featureImg3} alt="Student Transport" />
+                        <h3>Student Transport</h3>
+                        <p>Safe drop-offs and pick-ups for schools using our Minibus (Combi) and Honda Fit fleet. Mostly lady-driven for trusted care.</p>
                     </div>
                     <div className="feature-card">
                         <div className="feature-icon-container">
@@ -217,7 +250,7 @@ const LegaeLandingPage: React.FC = () => {
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 8 8"><path fill="#A31D1D" d="M0 3h1v4m1-1V4h4v2M0 3l4-2l4 2l-4 2" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#A31D1D" d="M12 3L4 9v12h16V9zm.5 9.5c0 .83-.67 1.5-1.5 1.5v4h-1v-4c-.83 0-1.5-.67-1.5-1.5v-3h1v3h.5v-3h1v3h.5v-3h1zM15 18h-1v-3.5h-1v-3c0-1.1.9-2 2-2z" /></svg>
                                 </span>
                                 Household Goods Transport
                             </span>
@@ -226,7 +259,7 @@ const LegaeLandingPage: React.FC = () => {
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="#A31D1D" d="M6.176 1.176a.25.25 0 0 0-.352 0l-4.4 4.4A.25.25 0 0 0 1.6 6H3v6.751a.25.25 0 0 0 .249.249h3.5A.25.25 0 0 0 7 12.753v-7.43c0-.066.026-.13.073-.176L8.5 3.5zM6 11H5v-1h1zm0-2H5V8h1zm0-3v1H5V6zm6.75-3h-.5a.25.25 0 0 0-.25.25V5l-1.324-1.824a.25.25 0 0 0-.352 0L8.056 5.932A.25.25 0 0 0 8 6.088v6.66a.25.25 0 0 0 .246.252h1.5a.253.253 0 0 0 .254-.252V11h1v1.747a.253.253 0 0 0 .253.253h1.5a.25.25 0 0 0 .247-.249V3.25a.25.25 0 0 0-.25-.25M10 8H9V7h1zm2 0h-1V7h1zm-2 2H9V9h1zm2 0h-1V9h1z" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#A31D1D" d="M8 22q-.825 0-1.412-.587T6 20v-4.3q0-1.85.525-3.562t1.65-3.413Q7.225 8.5 6.613 7.7T6 5.9V4.85q0-1.2 1.038-2.012T9.2 2.15l8.9.875q.425.05.663.338t.237.662V7q0 .375-.262.663T18.1 8l-.9.1q.35 1.225.925 2.2t1.375 1.4l-1 1.75q-1.325-.775-2.05-2.137T15.3 8.275l-1.1.1q.2 1.25.763 2.525t1.137 2.3q.45.8.675 1.675T17 16.65V20q0 .825-.587 1.413T15 22zM8 5.1v.8q0 .45.325.725t.775.225L17 6.1V4.9l-7.9-.75q-.45-.05-.775.225T8 5.1" /></svg>
                                 </span>
                                 Bulk Items & Farm Material Delivery
                             </span>
@@ -235,9 +268,9 @@ const LegaeLandingPage: React.FC = () => {
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#A31D1D" d="M16.923 15.02q-.154-.59-.6-1.1q-.446-.512-1.135-.766l-6.992-2.62q-.136-.05-.27-.061t-.307-.012H7v-2.34q0-.385.177-.742q.177-.358.5-.575l4.885-3.479q.224-.159.458-.229q.234-.069.478-.069t.49.07t.45.228l4.885 3.479q.323.217.5.575T20 8.12v6.898zM14.5 8.441q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m1.01 11.23q.198.055.481.048q.284-.006.48-.06L21 19.5q0-.696-.475-1.136q-.475-.441-1.179-.441h-5.158q-.498 0-1.02-.06q-.524-.061-.977-.22l-1.572-.526q-.161-.056-.236-.211t-.025-.315q.05-.139.202-.21q.152-.072.313-.016l1.433.502q.408.146.893.217q.486.07 1.053.07h1.202q.283 0 .453-.162t.17-.456q0-.388-.309-.809q-.308-.421-.716-.565l-6.021-2.21q-.137-.042-.273-.074q-.137-.032-.292-.032H6.385v6.737zM2.384 19.922q0 .46.308.768q.309.309.769.309h.846q.46 0 .768-.309q.309-.308.309-.768v-6q0-.46-.309-.768q-.309-.309-.768-.309h-.846q-.46 0-.769.309q-.308.309-.308.768z" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="#A31D1D" d="M12 3h2l4 7h1a1 1 0 0 1 1 1a1 1 0 0 1-1 1h-1v6a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H5v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-6H1a1 1 0 0 1-1-1a1 1 0 0 1 1-1h1l4-7h2V1h4zm3.86 7L13 5H7l-2.86 5zM5.5 15a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m9 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3" /></svg>
                                 </span>
-                                Vehicle & Tractor Moves
+                                Student School Runs
                             </span>
                             <span>→</span>
                         </div>
@@ -290,7 +323,7 @@ const LegaeLandingPage: React.FC = () => {
             </section>
 
             {/* Early Access */}
-            <section className="early-access">
+            <section className="early-access" id="gallery">
                 <h2>Stay Connected</h2>
                 <p>Be the first to know about special offers, new routes, and service updates — follow us on social media.</p>
                 <button className="try-free-btn" style={{ background: '#A31D1D', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Contact Us</button>
@@ -329,7 +362,21 @@ const LegaeLandingPage: React.FC = () => {
                 </div>
                 <div className="footer-bottom" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #FFE4E4', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem', color: '#666' }}>
                     <p>&copy; {new Date().getFullYear()} Agape. All rights reserved.</p>
-                    <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 1200 1200"><path fill="currentColor" d="M0 0v1200h1200V0zm863.232 156.592c8.715-.185 17.791.098 27.173.732c34.476.047 70.483 3.155 106.201 6.299l-3.882 142.09h-95.947c-44.988-.996-61.235 16.473-62.695 67.236V484.57h162.524l-6.445 152.197H834.082v423.706H675.513V636.768H565.43V484.57h110.083V353.906c0-94.209 39.829-154.174 118.286-184.57c20.149-7.928 43.288-12.189 69.433-12.744" /></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
+                        </a>
+                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                        </a>
+                        <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
+                    </div>
                 </div>
             </footer>
 
@@ -361,7 +408,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 onChange={(e) => setWaitlistEmail(e.target.value)}
                                                 className="popup-input"
                                             />
-                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '1rem', background: '#2D1414' }}>
+                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '0.8rem', background: '#2D1414', fontSize: '0.9rem' }}>
                                                 Contact Us Now
                                             </button>
                                         </form>
@@ -444,7 +491,7 @@ const LegaeLandingPage: React.FC = () => {
                                         </button>
                                     </div>
                                 )}
-                                <p className="popup-footer-text" style={{ marginTop: '1.5rem' }}>We promise not to spam you. Safety and reliability are our priorities.</p>
+                                <p className="popup-footer-text" style={{ marginTop: '1rem', fontSize: '0.75rem' }}>We promise not to spam you. Safety and reliability are our priorities.</p>
                             </div>
                         </div>
                     </div>
@@ -495,6 +542,15 @@ const LegaeLandingPage: React.FC = () => {
                     </div>
                 )
             }
+            {showScrollTop && (
+                <button
+                    className="scroll-top-btn"
+                    onClick={scrollToTop}
+                    title="Scroll to top"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M22.5 0h-21A1.5 1.5 0 0 0 0 1.5v21A1.5 1.5 0 0 0 1.5 24h21a1.5 1.5 0 0 0 1.5-1.5v-21A1.5 1.5 0 0 0 22.5 0m-4.66 13a.51.51 0 0 1-.86.36l-2.72-2.73a.25.25 0 0 0-.27-.05a.26.26 0 0 0-.16.23v7.9a.5.5 0 0 1-.5.5h-2a.51.51 0 0 1-.5-.5v-7.9a.25.25 0 0 0-.15-.23a.23.23 0 0 0-.27.06L7.69 13.3a.49.49 0 0 1-.85-.3V9.88A.5.5 0 0 1 7 9.51L12 5a.5.5 0 0 1 .67 0l5 4.55a.48.48 0 0 1 .17.37Z" /></svg>
+                </button>
+            )}
         </div >
     );
 };
