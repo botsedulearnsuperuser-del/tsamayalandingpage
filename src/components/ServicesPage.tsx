@@ -4,8 +4,8 @@ import './LandingPage/LegaeLandingPage.css';
 const ServicesPage: React.FC = () => {
     // Images
     const brandLogo = `/assets/AGAPE/image_3__1_-removebg-preview 1.png`;
-    const carImg = `/assets/AGAPE/SELLING A Car - Slider (1).png`;
-    const cabImg = `/assets/AGAPE/SELLING A Car - Slider (2).png`;
+    const carImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
+    const cabImg = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
     const combiImg = `/assets/AGAPE/SELLING A Car - Slider (3).png`;
     const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
 
@@ -138,7 +138,7 @@ const ServicesPage: React.FC = () => {
                             <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Locations & Pricing</h3>
+                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Cab Services</h3>
                             <p style={{ color: '#666', lineHeight: '1.6' }}>
                                 <strong>Pick-up:</strong> Block 6, Block 7 & nearby Ledumadumane<br />
                                 <strong>Drop-off:</strong> Gaborone International School (GIS)<br /><br />
