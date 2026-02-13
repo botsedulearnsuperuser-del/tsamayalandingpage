@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './LegaeLandingPage.css';
 
 const LegaeLandingPage: React.FC = () => {
-    const assetsPath = '/assets/legaemobile/';
     // REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIG_gYJf9uhg9O93wsigvyjBtTsSFJR_NJF5gEkKApsQDJP6WJhRvJkAFGhm4cg7Uw8A/exec";
 
