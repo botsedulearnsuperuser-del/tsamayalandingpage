@@ -125,7 +125,7 @@ const LegaeLandingPage: React.FC = () => {
                 <ul className="nav-links">
                     <li><a href="#features">About Us</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="/services">Services</a></li>
                 </ul>
                 <div className="nav-actions">
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
