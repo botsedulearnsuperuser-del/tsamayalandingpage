@@ -107,12 +107,9 @@ const AboutUsPage: React.FC = () => {
                         <p style={{ color: '#666', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
                             At Agape Transport & Logistics, our mission is simple: to make transport and delivery in Botswana simple, dependable, and affordable. Whether you are moving household goods, needing a reliable school run for your children, or transporting bulk materials, we are here to serve you.
                         </p>
-                        <p style={{ color: '#666', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                            We believe in the power of connection. Every journey we take is an opportunity to strengthen our community through safe and efficient service.
-                        </p>
                     </div>
                     <div>
-                        <img src={heroImage} alt="Our Transport Fleet" style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
+                        <img src={heroImage} alt="Our Transport Fleet" style={{ width: '100%', borderRadius: '0', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
                     </div>
                 </div>
 
