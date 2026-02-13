@@ -6,7 +6,7 @@ const ServicesPage: React.FC = () => {
     const brandLogo = `/assets/AGAPE/image_3__1_-removebg-preview 1.png`;
     const carImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
     const cabImg = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
-    const combiImg = `/assets/AGAPE/SELLING A Car - Slider (3).png`;
+    const combiImg = `/assets/AGAPE/image_1-removebg-preview 1.png`;
     const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
 
     const [showWaitlist, setShowWaitlist] = useState(false);
@@ -109,7 +109,7 @@ const ServicesPage: React.FC = () => {
                     {/* Card 1: Combi */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={combiImg} alt="Combi" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={combiImg} alt="Combi" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Combi & Bus Options</h3>
@@ -122,7 +122,7 @@ const ServicesPage: React.FC = () => {
                     {/* Card 2: Lady Driven */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={carImg} alt="Car" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={carImg} alt="Car" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lady-Driven Care</h3>
@@ -135,7 +135,7 @@ const ServicesPage: React.FC = () => {
                     {/* Card 3: Locations */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Cab Services</h3>
