@@ -7,7 +7,7 @@ const LegaeLandingPage: React.FC = () => {
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIG_gYJf9uhg9O93wsigvyjBtTsSFJR_NJF5gEkKApsQDJP6WJhRvJkAFGhm4cg7Uw8A/exec";
 
     // Images based on the directory scan
-    const heroHandImg = `${assetsPath}Untitled_design__2_-removebg-preview.png`;
+    const heroHandImg = `/assets/AGAPE/handon.png`;
     const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
     const featureImg1 = `/assets/AGAPE/image_3-removebg-preview 1.png`;
     const featureImg2 = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
