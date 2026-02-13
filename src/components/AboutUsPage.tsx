@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import './LandingPage/LegaeLandingPage.css';
 
-const ServicesPage: React.FC = () => {
+const AboutUsPage: React.FC = () => {
     // Images
     const brandLogo = `/assets/AGAPE/image_3__1_-removebg-preview 1.png`;
-    const carImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
-    const cabImg = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
-    const combiImg = `/assets/AGAPE/image_1-removebg-preview 1.png`;
+    const heroImage = `/assets/AGAPE/SELLING A Car - Slider (3).png`; // Using a generic transport image
     const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
+    const visionImg = `/assets/AGAPE/handon.png`; // Using the hand image for 'vision' or similar concept
 
     const [showWaitlist, setShowWaitlist] = useState(false);
     const [showPrivacy, setShowPrivacy] = useState(false);
@@ -70,9 +69,9 @@ const ServicesPage: React.FC = () => {
                     </a>
                 </div>
                 <ul className="nav-links">
-                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/about" style={{ color: 'var(--legae-red)', textDecoration: 'underline' }}>About Us</a></li>
                     <li><a href="/#testimonials">Testimonials</a></li>
-                    <li><a href="/services" style={{ color: 'var(--legae-red)', textDecoration: 'underline' }}>Services</a></li>
+                    <li><a href="/services">Services</a></li>
                 </ul>
                 <div className="nav-actions">
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -86,72 +85,73 @@ const ServicesPage: React.FC = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
                         </a>
                         <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
                         </a>
+                        <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
                     </div>
                     <button className="get-started-btn" onClick={() => setShowWaitlist(true)}>Get Started</button>
                 </div>
             </nav>
 
             <div className="section-header" style={{ padding: '0 10%', marginBottom: '3rem', textAlign: 'center', flexDirection: 'column', alignItems: 'center' }}>
-                <h2 style={{ fontSize: '3rem', color: '#1A1A1A' }}>Safe & Reliable School Transport Now Available</h2>
+                <h2 style={{ fontSize: '3rem', color: '#1A1A1A' }}>About Agape Transport & Logistics</h2>
                 <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.2rem' }}>
-                    Give your child a comfortable, secure, and on-time ride to school with Agape Transport & Logistics.
+                    Delivering more than just goods—we deliver trust, reliability, and peace of mind.
                 </p>
             </div>
 
-            <section className="service-cards" style={{ padding: '0 10% 4rem' }}>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '2rem'
-                }}>
-                    {/* Card 1: Combi */}
-                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={combiImg} alt="Combi" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                        </div>
-                        <div style={{ padding: '2rem', flex: 1 }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Combi & Bus Options</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
-                                Combi seats available for Primary & High School students. Spaces are limited and filling up fast – secure your child’s seat today and enjoy stress-free school mornings.
-                            </p>
-                        </div>
+            <section className="about-content" style={{ padding: '0 10% 4rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4rem', alignItems: 'center', marginBottom: '4rem' }}>
+                    <div>
+                        <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#2D1414' }}>Our Mission</h3>
+                        <p style={{ color: '#666', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+                            At Agape Transport & Logistics, our mission is simple: to make transport and delivery in Botswana simple, dependable, and affordable. Whether you are moving household goods, needing a reliable school run for your children, or transporting bulk materials, we are here to serve you.
+                        </p>
+                        <p style={{ color: '#666', lineHeight: '1.8', fontSize: '1.1rem' }}>
+                            We believe in the power of connection. Every journey we take is an opportunity to strengthen our community through safe and efficient service.
+                        </p>
                     </div>
-
-                    {/* Card 2: Lady Driven */}
-                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={carImg} alt="Car" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                        </div>
-                        <div style={{ padding: '2rem', flex: 1 }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lady-Driven Care</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
-                                Lady-driven for extra care and peace of mind. Care in every delivery. Give your child a comfortable, secure, and on-time ride.
-                            </p>
-                        </div>
+                    <div>
+                        <img src={heroImage} alt="Our Transport Fleet" style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
                     </div>
+                </div>
 
-                    {/* Card 3: Locations */}
-                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                        </div>
-                        <div style={{ padding: '2rem', flex: 1 }}>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Cab Services</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
-                                <strong>Pick-up:</strong> Block 6, Block 7 & nearby Ledumadumane<br />
-                                <strong>Drop-off:</strong> Gaborone International School (GIS)<br /><br />
-                                <strong>From P650 per month</strong>
-                            </p>
-                        </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4rem', alignItems: 'center', marginBottom: '4rem' }}>
+                    <div>
+                        <img src={visionImg} alt="Our Vision" style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', objectFit: 'contain', maxHeight: '500px' }} />
+                    </div>
+                    <div>
+                        <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#2D1414' }}>Why Choose Us?</h3>
+                        <ul style={{ listStyle: 'none', padding: 0 }}>
+                            <li style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '50%', color: '#A31D1D' }}>✓</span>
+                                <div>
+                                    <strong style={{ fontSize: '1.1rem', display: 'block', marginBottom: '0.5rem' }}>Safety First</strong>
+                                    <p style={{ color: '#666', margin: 0 }}>Our lady-driven fleet for school transport ensures extra care and vital peace of mind for parents.</p>
+                                </div>
+                            </li>
+                            <li style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '50%', color: '#A31D1D' }}>✓</span>
+                                <div>
+                                    <strong style={{ fontSize: '1.1rem', display: 'block', marginBottom: '0.5rem' }}>Reliability</strong>
+                                    <p style={{ color: '#666', margin: 0 }}>We pride ourselves on punctuality. When we say we'll be there, we'll be there.</p>
+                                </div>
+                            </li>
+                            <li style={{ marginBottom: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '50%', color: '#A31D1D' }}>✓</span>
+                                <div>
+                                    <strong style={{ fontSize: '1.1rem', display: 'block', marginBottom: '0.5rem' }}>Community Focused</strong>
+                                    <p style={{ color: '#666', margin: 0 }}>Proudly local and serving our communities with dedication and respect.</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '4rem', background: '#FDF2F2', padding: '3rem', borderRadius: '24px' }}>
-                    <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Secure your child's seat today</h3>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Book now: (+267) 74 731 334</p>
-                    <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us Now</button>
+                    <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Join the Agape Family</h3>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Experience the difference with transport that cares.</p>
+                    <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Get a Quote</button>
                 </div>
             </section>
 
@@ -175,7 +175,7 @@ const ServicesPage: React.FC = () => {
                     <div className="footer-links">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="/about">About Us</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="#" onClick={(e) => { e.preventDefault(); setShowPrivacy(true); }}>Privacy Policy</a></li>
                         </ul>
@@ -292,4 +292,4 @@ const ServicesPage: React.FC = () => {
     );
 };
 
-export default ServicesPage;
+export default AboutUsPage;

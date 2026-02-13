@@ -123,7 +123,7 @@ const LegaeLandingPage: React.FC = () => {
                     <img src={brandLogo} alt="Agape Logo" style={{ height: '7.5rem', width: 'auto', objectFit: 'contain' }} />
                 </div>
                 <ul className="nav-links">
-                    <li><a href="#features">About Us</a></li>
+                    <li><a href="/about">About Us</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="/services">Services</a></li>
                 </ul>
