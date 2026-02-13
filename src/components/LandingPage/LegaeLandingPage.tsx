@@ -8,10 +8,11 @@ const LegaeLandingPage: React.FC = () => {
 
     // Images based on the directory scan
     const heroHandImg = `${assetsPath}Untitled_design__2_-removebg-preview.png`;
-    const featureImg1 = `${assetsPath}Untitled_design__3_-removebg-preview.png`;
-    const featureImg2 = `${assetsPath}Untitled_design__4_-removebg-preview.png`;
-    const featureImg3 = `${assetsPath}Untitled_design__5_-removebg-preview.png`;
-    const brandLogo = `${assetsPath}logo-for-boroko-mobile.png`;
+    const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
+    const featureImg1 = `/assets/AGAPE/image_3-removebg-preview 1.png`;
+    const featureImg2 = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
+    const featureImg3 = `/assets/AGAPE/image_1-removebg-preview 1.png`;
+    const brandLogo = `/assets/AGAPE/image_3__1_-removebg-preview 1.png`;
 
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -78,20 +79,20 @@ const LegaeLandingPage: React.FC = () => {
 
     const faqData = [
         {
-            question: "How do I list my property?",
-            answer: "Simply download the Legae app, create a verified property owner or agent account, and tap on the 'List Property' button. You'll be guided through uploading photos, setting a price, and providing property details."
+            question: "What kinds of transport jobs can you do?",
+            answer: "We provide local and longer‑distance transport for a variety of needs — from household goods and furniture to vehicles, tractors, building materials, and more."
         },
         {
-            question: "Is the app free to use?",
-            answer: "Legae is completely free for property seekers! For owners and agents, we offer both free basic listings and premium featured slots to help your properties get noticed faster."
+            question: "How do I book a delivery?",
+            answer: "Simply reach out to us via phone, WhatsApp, or social media. Tell us your location, destination, and what you need to transport."
         },
         {
-            question: "How do I contact agents?",
-            answer: "Each listing has a built-in 'Contact Agent' button. You can chat directly through our secure in-app messaging system or call them directly if they've enabled that option."
+            question: "Do you offer cross‑town and longer distance routes?",
+            answer: "Yes, we move your parcels and cargo across town or beyond — providing transport from Maun to Gaborone and other routes."
         },
         {
-            question: "Are the listings verified?",
-            answer: "Yes. Safety is our priority. Our team manually reviews property titles, identification documents, and conducts spot checks to ensure every listing on Legae is 100% legitimate."
+            question: "How do I contact you?",
+            answer: "You can get support through direct calls or messages regarding your delivery. Our team keeps you informed from pickup to delivery."
         }
     ];
 
@@ -100,8 +101,7 @@ const LegaeLandingPage: React.FC = () => {
             {/* Navigation */}
             <nav className="navbar">
                 <div className="logo">
-                    <img src={brandLogo} alt="Legae Logo" style={{ height: '2.5rem', width: 'auto', objectFit: 'contain' }} />
-                    Legae
+                    <img src={brandLogo} alt="Agape Logo" style={{ height: '7.5rem', width: 'auto', objectFit: 'contain' }} />
                 </div>
                 <ul className="nav-links">
                     <li><a href="#features">Features</a></li>
@@ -117,12 +117,11 @@ const LegaeLandingPage: React.FC = () => {
             <header className="hero">
                 <div className="hero-container">
                     <div className="hero-content-wrapper">
-                        <h1>An app that finds homes for you so you can live gracefully</h1>
+                        <h1>Seamless Transport & Logistics Solutions</h1>
                         <p className="hero-subtitle">
-                            Find student housing, dream homes, and manage rentals effortlessly.
-                            Legae is the most reliable and discrete way to find your next home in Botswana.
+                            Reliable, efficient, and secure transportation services across Botswana. We move what matters most to you.
                         </p>
-                        <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Join Waitlist</button>
+                        <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us</button>
                     </div>
 
                     <div className="hero-image-container">
@@ -135,28 +134,28 @@ const LegaeLandingPage: React.FC = () => {
             <section className="features" id="features">
                 <div className="section-header">
                     <div>
-                        <h2>Designed to help you live gracefully. In any situation.</h2>
+                        <h2>Designed to help you move anything — anytime, anywhere.</h2>
                     </div>
                     <div>
-                        <p>We've built Legae to be the most comprehensive housing app in the region, focusing on ease of use and reliability.</p>
+                        <p>At Agape Transport & Logistics, we’re focused on making transport and delivery simple, dependable, and affordable in Botswana. Whether it’s cargo, goods, or personal items — we deliver with care and reliability.</p>
                     </div>
                 </div>
 
                 <div className="features-grid">
                     <div className="feature-card">
-                        <img src={featureImg1} alt="Create Scenarios" />
-                        <h3>Find Your Dream Home</h3>
-                        <p>Browse through thousands of verified listings with detailed information and high-quality photos.</p>
+                        <img src={featureImg1} alt="Transport Services" />
+                        <h3>Transport Services</h3>
+                        <p>We provide local and longer‑distance transport for a variety of needs — from household goods and furniture to vehicles, tractors, building materials, and more.</p>
                     </div>
                     <div className="feature-card">
-                        <img src={featureImg2} alt="Real Calls" />
-                        <h3>Student Accomodation</h3>
-                        <p>Specifically curated listings for students, near major campuses with all the amenities you need.</p>
+                        <img src={featureImg2} alt="Cargo & Delivery" />
+                        <h3>Cargo & Delivery</h3>
+                        <p>Move your parcels and cargo across town or beyond — Maun to Gaborone and other routes.</p>
                     </div>
                     <div className="feature-card">
-                        <img src={featureImg3} alt="Faking Chat" />
-                        <h3>Direct Management</h3>
-                        <p>Owners and agents can manage their properties, chat with potential tenants, and track payments.</p>
+                        <img src={featureImg3} alt="Professional Drivers" />
+                        <h3>Professional Drivers</h3>
+                        <p>We hire trained, responsible drivers to ensure your goods are transported safely and on schedule.</p>
                     </div>
                     <div className="feature-card">
                         <div className="feature-icon-container">
@@ -164,12 +163,12 @@ const LegaeLandingPage: React.FC = () => {
                                 <div className="feature-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#A31D1D" d="M4 19v-2h2v-7q0-2.075 1.25-3.687T10.5 4.2V2h3v2.2q2 .5 3.25 2.113T18 10v7h2v2zm8 3q-.825 0-1.412-.587T10 20h4q0 .825-.587 1.413T12 22M2 10q0-2.5 1.113-4.587T6.1 1.95l1.175 1.6q-1.5 1.1-2.387 2.775T4 10zm18 0q0-2-.888-3.675T16.726 3.55l1.175-1.6q1.875 1.375 2.988 3.463T22 10z" /></svg>
                                 </div>
-                                <h4>Instant Notifications</h4>
-                                <p>Get notified the moment a property matching your criteria is listed.</p>
+                                <h4>Trust & Reliability</h4>
+                                <p>Every delivery is handled with security and punctuality in mind.</p>
                             </div>
                         </div>
-                        <h3>Smart Alerts</h3>
-                        <p>Stay ahead of the market with real-time alerts for the newest and hottest listings.</p>
+                        <h3>Real Calls & Support</h3>
+                        <p>Get support through direct calls or messages — our team keeps you informed from pickup to delivery.</p>
                     </div>
                 </div>
             </section>
@@ -184,23 +183,23 @@ const LegaeLandingPage: React.FC = () => {
                     <div className="steps-content">
                         <div className="step-item">
                             <div className="step-number">01</div>
-                            <h3>Download app</h3>
-                            <p>Available on iOS and Android.</p>
+                            <h3>Reach Out</h3>
+                            <p>Contact us via phone, WhatsApp, or social media.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">02</div>
-                            <h3>Set preferences</h3>
-                            <p>Tell us your location and budget.</p>
+                            <h3>Tell Us Your Transport Needs</h3>
+                            <p>Where you’re moving from, where you’re going, and what you’re transporting.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">03</div>
-                            <h3>Find a home</h3>
-                            <p>Browse through verified listings.</p>
+                            <h3>We Arrange Transport</h3>
+                            <p>We match you with a driver and vehicle suited for your job.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">04</div>
-                            <h3>Secure deal</h3>
-                            <p>Chat and secure with a few taps.</p>
+                            <h3>Delivery & Confirmation</h3>
+                            <p>Receive updates and confirmation once delivery is complete.</p>
                         </div>
                     </div>
                     <div className="steps-image">
@@ -212,15 +211,15 @@ const LegaeLandingPage: React.FC = () => {
             {/* Scenario Highlights */}
             <section className="scenarios">
                 <div className="scenarios-content">
-                    <h2>Scenario Highlights</h2>
-                    <p>Focus on the moments that matter most with our selection of curated housing categories.</p>
+                    <h2>Highlights</h2>
+                    <p>Our key services designed to meet your logistics needs.</p>
                     <div className="scenario-list">
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 8 8"><path fill="#A31D1D" d="M0 3h1v4m1-1V4h4v2M0 3l4-2l4 2l-4 2" /></svg>
                                 </span>
-                                Student Accommodation in Gabs
+                                Household Goods Transport
                             </span>
                             <span>→</span>
                         </div>
@@ -229,7 +228,7 @@ const LegaeLandingPage: React.FC = () => {
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="#A31D1D" d="M6.176 1.176a.25.25 0 0 0-.352 0l-4.4 4.4A.25.25 0 0 0 1.6 6H3v6.751a.25.25 0 0 0 .249.249h3.5A.25.25 0 0 0 7 12.753v-7.43c0-.066.026-.13.073-.176L8.5 3.5zM6 11H5v-1h1zm0-2H5V8h1zm0-3v1H5V6zm6.75-3h-.5a.25.25 0 0 0-.25.25V5l-1.324-1.824a.25.25 0 0 0-.352 0L8.056 5.932A.25.25 0 0 0 8 6.088v6.66a.25.25 0 0 0 .246.252h1.5a.253.253 0 0 0 .254-.252V11h1v1.747a.253.253 0 0 0 .253.253h1.5a.25.25 0 0 0 .247-.249V3.25a.25.25 0 0 0-.25-.25M10 8H9V7h1zm2 0h-1V7h1zm-2 2H9V9h1zm2 0h-1V9h1z" /></svg>
                                 </span>
-                                Luxury Villas in Phakalane
+                                Bulk Items & Farm Material Delivery
                             </span>
                             <span>→</span>
                         </div>
@@ -238,7 +237,7 @@ const LegaeLandingPage: React.FC = () => {
                                 <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#A31D1D" d="M16.923 15.02q-.154-.59-.6-1.1q-.446-.512-1.135-.766l-6.992-2.62q-.136-.05-.27-.061t-.307-.012H7v-2.34q0-.385.177-.742q.177-.358.5-.575l4.885-3.479q.224-.159.458-.229q.234-.069.478-.069t.49.07t.45.228l4.885 3.479q.323.217.5.575T20 8.12v6.898zM14.5 8.441q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m1.01 11.23q.198.055.481.048q.284-.006.48-.06L21 19.5q0-.696-.475-1.136q-.475-.441-1.179-.441h-5.158q-.498 0-1.02-.06q-.524-.061-.977-.22l-1.572-.526q-.161-.056-.236-.211t-.025-.315q.05-.139.202-.21q.152-.072.313-.016l1.433.502q.408.146.893.217q.486.07 1.053.07h1.202q.283 0 .453-.162t.17-.456q0-.388-.309-.809q-.308-.421-.716-.565l-6.021-2.21q-.137-.042-.273-.074q-.137-.032-.292-.032H6.385v6.737zM2.384 19.922q0 .46.308.768q.309.309.769.309h.846q.46 0 .768-.309q.309-.308.309-.768v-6q0-.46-.309-.768q-.309-.309-.768-.309h-.846q-.46 0-.769.309q-.308.309-.308.768z" /></svg>
                                 </span>
-                                Affordable Rentals in Tlokweng
+                                Vehicle & Tractor Moves
                             </span>
                             <span>→</span>
                         </div>
@@ -256,11 +255,11 @@ const LegaeLandingPage: React.FC = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 640 640"><path fill="#A31D1D" d="M341.8 72.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S82.8 336 96 336h16v176c0 35.3 28.7 64 64 64h288c35.3 0 64-28.7 64-64V336h16c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1zM264 320c0-30.9 25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56m-56 176c0-44.2 35.8-80 80-80h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H224c-8.8 0-16-7.2-16-16" /></svg>
                     </div>
                     <p className="testimonial-text">
-                        "Legae made finding my student apartment so much easier. I could filter by my budget and proximity to UB, and the direct chat with the landlord was a game changer."
+                        "Agape transported my furniture and household items with no damage and good timing — very professional."
                     </p>
                     <div className="testimonial-author">
-                        <strong>Bonnie Odireleng</strong>
-                        <p>University of Botswana Student</p>
+                        <strong>Satisfied Customer</strong>
+                        <p>Agape Client</p>
                     </div>
                 </div>
             </section>
@@ -286,14 +285,15 @@ const LegaeLandingPage: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                    Agape
                 </div>
             </section>
 
             {/* Early Access */}
             <section className="early-access">
-                <h2>Get early access</h2>
-                <p>Be the first to know when we launch new features and exclusive listings.</p>
-                <button className="try-free-btn" style={{ background: '#A31D1D', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Join Waitlist</button>
+                <h2>Stay Connected</h2>
+                <p>Be the first to know about special offers, new routes, and service updates — follow us on social media.</p>
+                <button className="try-free-btn" style={{ background: '#A31D1D', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Contact Us</button>
                 <div className="early-access-images">
                     <img src={featureImg1} alt="User 1" />
                     <img src={featureImg2} alt="User 2" />
@@ -303,11 +303,11 @@ const LegaeLandingPage: React.FC = () => {
 
             {/* Footer */}
             <footer className="footer">
-                <div className="footer-logo-large">Legae</div>
+                <div className="footer-logo-large">Agape</div>
                 <div className="footer-grid">
                     <div className="footer-info">
                         <p style={{ color: '#666', maxWidth: '300px' }}>
-                            Making home finding easy and accessible for everyone in Botswana. Unlocking your future, one home at a time.
+                            Making transport and delivery simple, dependable, and affordable in Botswana. We deliver with care and reliability.
                         </p>
                     </div>
                     <div className="footer-links">
@@ -328,7 +328,7 @@ const LegaeLandingPage: React.FC = () => {
                     </div>
                 </div>
                 <div className="footer-bottom" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #FFE4E4', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem', color: '#666' }}>
-                    <p>&copy; {new Date().getFullYear()} Legae. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Agape. All rights reserved.</p>
                     <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
                 </div>
             </footer>
@@ -342,16 +342,15 @@ const LegaeLandingPage: React.FC = () => {
                         </button>
                         <div className="popup-content">
                             <div className="popup-left">
-                                <img src={heroHandImg} alt="Legae App" className="popup-app-img" />
+                                <img src={popupImg} alt="Agape Services" className="popup-app-img" />
                             </div>
                             <div className="popup-right">
 
                                 {waitlistStep === 1 ? (
                                     <>
-                                        <h2>Join the Legae Waitlist</h2>
+                                        <h2>Contact Agape</h2>
                                         <p className="popup-desc">
-                                            Be the first professional to unlock the future of housing in Botswana.
-                                            By joining our waitlist, you'll get early access to verified listings.
+                                            By contacting us, you get direct access to our transport solutions.
                                         </p>
                                         <form className="popup-form" onSubmit={handleWaitlistSubmit}>
                                             <input
@@ -363,7 +362,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 className="popup-input"
                                             />
                                             <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '1rem', background: '#2D1414' }}>
-                                                Join Waitlist
+                                                Contact Us Now
                                             </button>
                                         </form>
                                     </>
@@ -382,7 +381,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 style={{ marginTop: '5px', cursor: 'pointer', width: '20px', height: '20px' }}
                                             />
                                             <label htmlFor="email-consent" style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.4', cursor: 'pointer' }}>
-                                                I agree to receive emails from Legae regarding product launches, beta mode invitations, and exclusive updates.
+                                                I agree to receive communications from Agape regarding service updates and offers.
                                             </label>
                                         </div>
                                         <button
@@ -433,8 +432,8 @@ const LegaeLandingPage: React.FC = () => {
                                         </div>
                                         <h2 style={{ marginBottom: '1rem' }}>You're on the list!</h2>
                                         <p className="popup-desc" style={{ marginBottom: '2rem' }}>
-                                            Thank you for joining Legae. We've sent a confirmation to <strong style={{ color: '#1a1a1a' }}>{waitlistEmail}</strong>.
-                                            We'll be in touch soon with exclusive updates!
+                                            Thank you for contacting Agape. We've received your details at <strong style={{ color: '#1a1a1a' }}>{waitlistEmail}</strong>.
+                                            We'll be in touch soon!
                                         </p>
                                         <button
                                             className="try-free-btn"
@@ -445,7 +444,7 @@ const LegaeLandingPage: React.FC = () => {
                                         </button>
                                     </div>
                                 )}
-                                <p className="popup-footer-text" style={{ marginTop: '1.5rem' }}>We promise not to spam you. Safety and discretion are our priorities.</p>
+                                <p className="popup-footer-text" style={{ marginTop: '1.5rem' }}>We promise not to spam you. Safety and reliability are our priorities.</p>
                             </div>
                         </div>
                     </div>
@@ -467,7 +466,7 @@ const LegaeLandingPage: React.FC = () => {
                                 <div className="privacy-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>
                                     <div className="privacy-section">
                                         <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>1. Introduction</h3>
-                                        <p>Welcome to Legae. We respect your privacy and are committed to protecting your personal data. This policy informs you about how we handle your data when you visit our website or app.</p>
+                                        <p>Welcome to Agape. We respect your privacy and are committed to protecting your personal data. This policy informs you about how we handle your data when you visit our website or app.</p>
                                     </div>
 
                                     <div className="privacy-section">
@@ -477,7 +476,7 @@ const LegaeLandingPage: React.FC = () => {
 
                                     <div className="privacy-section">
                                         <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>3. How We Use Your Data</h3>
-                                        <p>We use your email address to share updates on our journey, invite you to our beta testing phase, and receive your valuable feedback to improve Legae before our official launch.</p>
+                                        <p>We use your email address to share updates on our services and receive your valuable feedback to improve Agape.</p>
                                     </div>
 
                                     <div className="privacy-section">
