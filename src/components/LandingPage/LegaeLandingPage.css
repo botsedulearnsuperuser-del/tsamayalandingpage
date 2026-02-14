@@ -93,6 +93,14 @@ body {
     transform: translateY(-2px);
 }
 
+.mobile-menu-btn {
+    display: none;
+}
+
+.mobile-nav-dropdown {
+    display: none;
+}
+
 /* Hero Section */
 .hero {
     min-height: 70vh;
@@ -618,14 +626,99 @@ body {
 /* Mobile Responsive */
 @media (max-width: 900px) {
     .navbar {
-        padding: 0.5rem 5%;
-        height: 60px;
-        /* Enforce a max height */
+        padding: 0 5%;
+        height: 70px;
+        position: relative;
+    }
+
+    .nav-actions {
+        gap: 0.8rem;
+    }
+
+    .nav-actions>div {
+        display: none !important;
+        /* Hide social icons wrapping div on mobile */
+    }
+
+    .get-started-btn {
+        display: none !important;
+        /* Hide main button on mobile as requested */
+    }
+
+    .mobile-menu-btn {
+        display: flex !important;
+        background: var(--legae-red);
+        color: white;
+        border: none;
+        padding: 0.6rem;
+        border-radius: 8px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+    }
+
+    .logo img {
+        height: 4.5rem !important;
     }
 
     .nav-links {
         display: none;
-        /* Hide nav links on mobile for cleaner look unless burger menu implemented */
+    }
+
+    /* Mobile Dropdown Menu */
+    .mobile-nav-dropdown {
+        display: flex !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 2rem 5%;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        gap: 1.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 999;
+        border-top: 1px solid #eee;
+    }
+
+    .mobile-nav-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .mobile-nav-links a {
+        text-decoration: none;
+        color: var(--legae-text);
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .mobile-get-started {
+        width: 100%;
+        padding: 1rem;
+        background: #2D1414;
+        /* Using the dark brown for the button */
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
     }
 
     .hero {
@@ -958,23 +1051,30 @@ body {
     .popup-left {
         display: flex;
         width: 100%;
-        padding: 1rem;
+        padding: 2rem 1rem 0;
+        /* Add padding to top, reduce sides */
         justify-content: center;
     }
 
     .popup-app-img {
-        max-height: 150px;
+        max-height: 200px;
+        /* Increased size */
+        margin-bottom: 0;
         transform: rotate(0deg);
     }
 
     .popup-right {
-        padding: 3rem 1.5rem;
+        padding: 1.5rem;
+        /* Reduced padding */
         width: 100%;
     }
 
     .waitlist-popup {
         max-width: 95%;
         border-radius: 20px;
+        max-height: 90vh;
+        /* Ensure it fits in viewport */
+        overflow-y: auto;
     }
 
     .close-popup {
