@@ -8,6 +8,9 @@ const ServicesPage: React.FC = () => {
     const cabImg = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
     const combiImg = `/assets/AGAPE/image_1-removebg-preview 1.png`;
     const popupImg = `/assets/AGAPE/image_3-removebg-preview 1.png`;
+    const constructionImg = `/assets/AGAPE/construction.png`;
+    const floristImg = `/assets/AGAPE/florist.png`;
+    const securityImg = `/assets/AGAPE/security.png`;
 
     const [showWaitlist, setShowWaitlist] = useState(false);
     const [showPrivacy, setShowPrivacy] = useState(false);
@@ -86,8 +89,11 @@ const ServicesPage: React.FC = () => {
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1200 1200"><path fill="currentColor" d="M0 0v1200h1200V0zm863.232 156.592c8.715-.185 17.791.098 27.173.732c34.476.047 70.483 3.155 106.201 6.299l-3.882 142.09h-95.947c-44.988-.996-61.235 16.473-62.695 67.236V484.57h162.524l-6.445 152.197H834.082v423.706H675.513V636.768H565.43V484.57h110.083V353.906c0-94.209 39.829-154.174 118.286-184.57c20.149-7.928 43.288-12.189 69.433-12.744" /></svg>
                         </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
+                        </a>
                         <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                     </div>
                     <button className="get-started-btn" onClick={() => setShowWaitlist(true)}>Get Started</button>
@@ -128,7 +134,7 @@ const ServicesPage: React.FC = () => {
                     {/* Card 1: Combi */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={combiImg} alt="Combi" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                            <img src={combiImg} alt="Combi" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Combi & Bus Options</h3>
@@ -141,7 +147,7 @@ const ServicesPage: React.FC = () => {
                     {/* Card 2: Lady Driven */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={carImg} alt="Car" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                            <img src={carImg} alt="Car" style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#F9FAFB', objectPosition: 'right' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lady-Driven Care</h3>
@@ -154,21 +160,79 @@ const ServicesPage: React.FC = () => {
                     {/* Card 3: Locations */}
                     <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
-                            <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                            <img src={cabImg} alt="Cab" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Cab Services</h3>
                             <p style={{ color: '#666', lineHeight: '1.6' }}>
                                 <strong>Pick-up:</strong> Block 6, Block 7 & nearby Ledumadumane<br />
                                 <strong>Drop-off:</strong> Gaborone International School (GIS)<br /><br />
-                                <strong>From P650 per month</strong>
+                                <strong>From P650 per month</strong><br />
+                                <a href="https://www.facebook.com/photo/?fbid=122159496050723721&set=a.122093241908723721" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', textDecoration: 'underline', fontSize: '0.9rem', marginTop: '0.5rem', display: 'block' }}>
+                                    checkout our faceboook page
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style={{ textAlign: 'center', marginTop: '6rem', marginBottom: '3rem', textAlign: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                    <h2 style={{ fontSize: '3rem', color: '#1A1A1A' }}>Agape Group Services</h2>
+                    <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.2rem' }}>
+                        Providing excellence across multiple sectors to serve Botswana's growing needs.
+                    </p>
+                </div>
+
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '2rem'
+                }}>
+                    {/* Card 4: Construction */}
+                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ height: '250px', overflow: 'hidden' }}>
+                            <img src={constructionImg} alt="Construction" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '2rem', flex: 1 }}>
+                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Agape Construction</h3>
+                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                                Reliable construction for residential and commercial projects. We build with integrity and quality materials.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Card 5: Security */}
+                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ height: '250px', overflow: 'hidden' }}>
+                            <img src={securityImg} alt="Security" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '2rem', flex: 1 }}>
+                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Agape Security</h3>
+                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                                Professional protection services for homes and businesses. Trained personnel and modern security solutions.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Card 6: Florist & Decor */}
+                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ height: '250px', overflow: 'hidden' }}>
+                            <img src={floristImg} alt="Florist & Decor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        </div>
+                        <div style={{ padding: '2rem', flex: 1 }}>
+                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Florist & Decor</h3>
+                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                                Stunning floral designs and event decor. Bringing creativity and elegance to your special moments. {' '}
+                                <a href="https://www.facebook.com/profile.php?id=61571509228714&sk=photos" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', textDecoration: 'underline', fontSize: '0.9rem', whiteSpace: 'nowrap' }}>
+                                    check out our facebook
+                                </a>
                             </p>
                         </div>
                     </div>
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '4rem', background: '#FDF2F2', padding: '3rem', borderRadius: '24px' }}>
-                    <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Secure your child's seat today</h3>
+                    <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Get in touch for any of our services</h3>
                     <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Book now: (+267) 74 731 334</p>
                     <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us Now</button>
                 </div>
@@ -176,19 +240,19 @@ const ServicesPage: React.FC = () => {
 
             {/* Footer */}
             <footer className="footer">
-                <div className="footer-logo-large">Agape</div>
+                <div className="footer-logo-large">Agape Group</div>
                 <div className="footer-grid">
                     <div className="footer-info">
                         <p style={{ color: '#666', maxWidth: '300px' }}>
-                            Making transport and delivery simple, dependable, and affordable in Botswana. We deliver with care and reliability.
+                            A diversified group delivering excellence in Transport & Logistics, Construction, Security, and Creative Decor Services in Botswana.
                         </p>
                     </div>
                     <div className="footer-links">
-                        <h4>Platform</h4>
+                        <h4>Services</h4>
                         <ul>
-                            <li><a href="/#features">Features</a></li>
-                            <li><a href="/#testimonials">Testimonials</a></li>
-                            <li><a href="#">Downloads</a></li>
+                            <li><a href="/services">School Transport</a></li>
+                            <li><a href="/services">Construction</a></li>
+                            <li><a href="/services">Security Services</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
@@ -213,7 +277,7 @@ const ServicesPage: React.FC = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
                         </a>
                         <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                         <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
                     </div>

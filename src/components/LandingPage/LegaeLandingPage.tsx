@@ -12,6 +12,9 @@ const LegaeLandingPage: React.FC = () => {
     const featureImg2 = `/assets/AGAPE/image_4__1_-removebg-preview 1.png`;
     const featureImg3 = `/assets/AGAPE/image_1-removebg-preview 1.png`;
     const brandLogo = `/assets/AGAPE/image_3__1_-removebg-preview 1.png`;
+    const constructionImg = `/assets/AGAPE/construction.png`;
+    const floristImg = `/assets/AGAPE/florist.png`;
+    const securityImg = `/assets/AGAPE/security.png`;
 
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -143,7 +146,7 @@ const LegaeLandingPage: React.FC = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
                         </a>
                         <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                     </div>
                     <button className="get-started-btn" onClick={() => setShowWaitlist(true)}>Get Started</button>
@@ -198,7 +201,7 @@ const LegaeLandingPage: React.FC = () => {
 
                 <div className="features-grid">
                     <div className="feature-card">
-                        <img src={featureImg1} alt="Transport Services" />
+                        <img src={featureImg1} alt="Transport Services" style={{ objectPosition: 'right', objectFit: 'contain', background: '#F9FAFB' }} />
                         <h3>Transport Services</h3>
                         <p>We provide local and longer‑distance transport for a variety of needs — from household goods and furniture to vehicles, tractors, building materials, and more.</p>
                     </div>
@@ -212,18 +215,33 @@ const LegaeLandingPage: React.FC = () => {
                         <h3>Student Transport</h3>
                         <p>Safe drop-offs and pick-ups for schools using our Minibus (Combi) and Honda Fit fleet. Mostly lady-driven for trusted care.</p>
                     </div>
-                    <div className="feature-card">
-                        <div className="feature-icon-container">
-                            <div className="feature-icon-box">
-                                <div className="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#A31D1D" d="M4 19v-2h2v-7q0-2.075 1.25-3.687T10.5 4.2V2h3v2.2q2 .5 3.25 2.113T18 10v7h2v2zm8 3q-.825 0-1.412-.587T10 20h4q0 .825-.587 1.413T12 22M2 10q0-2.5 1.113-4.587T6.1 1.95l1.175 1.6q-1.5 1.1-2.387 2.775T4 10zm18 0q0-2-.888-3.675T16.726 3.55l1.175-1.6q1.875 1.375 2.988 3.463T22 10z" /></svg>
-                                </div>
-                                <h4>Trust & Reliability</h4>
-                                <p>Every delivery is handled with security and punctuality in mind.</p>
-                            </div>
-                        </div>
-                        <h3>Real Calls & Support</h3>
-                        <p>Get support through direct calls or messages — our team keeps you informed from pickup to delivery.</p>
+                </div>
+
+                {/* New Group Services Section */}
+                <div className="section-header" style={{ marginTop: '6rem' }}>
+                    <div>
+                        <h2>Beyond Logistics: The Agape Group</h2>
+                    </div>
+                    <div>
+                        <p>Agape is more than just transport. We are a diversified group of services dedicated to excellence in every sector we operate in.</p>
+                    </div>
+                </div>
+
+                <div className="features-grid" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    <div className="feature-card" style={{ flex: '1 1 400px', maxWidth: '600px' }}>
+                        <img src={constructionImg} alt="Construction" />
+                        <h3>Agape Construction</h3>
+                        <p>Built on trust. We provide reliable construction services for residential and commercial projects, ensuring quality and durability in every build.</p>
+                    </div>
+                    <div className="feature-card" style={{ flex: '1 1 400px', maxWidth: '600px' }}>
+                        <img src={securityImg} alt="Security" />
+                        <h3>Agape Security Services</h3>
+                        <p>Your safety is our priority. We offer professional security solutions tailored to protect what matters most to you and your business.</p>
+                    </div>
+                    <div className="feature-card" style={{ flex: '1 1 400px', maxWidth: '600px', textAlign: 'center' }}>
+                        <img src={floristImg} alt="Florist & Decor" />
+                        <h3>Florist & Decor Services</h3>
+                        <p>Creative services driven by excellence. We provide stunning floral arrangements and decor solutions for all your special occasions.</p>
                     </div>
                 </div>
             </section>
@@ -357,19 +375,19 @@ const LegaeLandingPage: React.FC = () => {
 
             {/* Footer */}
             <footer className="footer">
-                <div className="footer-logo-large">Agape</div>
+                <div className="footer-logo-large">Agape Group</div>
                 <div className="footer-grid">
                     <div className="footer-info">
                         <p style={{ color: '#666', maxWidth: '300px' }}>
-                            Making transport and delivery simple, dependable, and affordable in Botswana. We deliver with care and reliability.
+                            A diversified group delivering excellence in Transport & Logistics, Construction, Security, and Creative Decor Services in Botswana.
                         </p>
                     </div>
                     <div className="footer-links">
-                        <h4>Platform</h4>
+                        <h4>Services</h4>
                         <ul>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Downloads</a></li>
+                            <li><a href="/services">School Transport</a></li>
+                            <li><a href="/services">Construction</a></li>
+                            <li><a href="/services">Security Services</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
@@ -394,7 +412,7 @@ const LegaeLandingPage: React.FC = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
                         </a>
                         <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', display: 'flex' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                         <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
                     </div>
@@ -417,10 +435,15 @@ const LegaeLandingPage: React.FC = () => {
                                 {waitlistStep === 1 ? (
                                     <>
                                         <h2>Contact Agape</h2>
-                                        <p className="popup-desc">
+                                        <p className="popup-desc" style={{ marginBottom: '1.5rem' }}>
                                             By contacting us, you get direct access to our transport solutions.
                                         </p>
-                                        <form className="popup-form" onSubmit={handleWaitlistSubmit}>
+                                        <form className="popup-form" onSubmit={handleWaitlistSubmit} style={{
+                                            display: 'grid',
+                                            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                                            gap: '1rem',
+                                            maxWidth: '550px'
+                                        }}>
                                             <input
                                                 type="text"
                                                 placeholder="Full Name"
@@ -428,6 +451,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 value={fullName}
                                                 onChange={(e) => setFullName(e.target.value)}
                                                 className="popup-input"
+                                                style={{ marginBottom: 0 }}
                                             />
                                             <input
                                                 type="email"
@@ -436,6 +460,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 value={waitlistEmail}
                                                 onChange={(e) => setWaitlistEmail(e.target.value)}
                                                 className="popup-input"
+                                                style={{ marginBottom: 0 }}
                                             />
                                             <input
                                                 type="tel"
@@ -444,8 +469,9 @@ const LegaeLandingPage: React.FC = () => {
                                                 value={phoneNumber}
                                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                                 className="popup-input"
+                                                style={{ marginBottom: 0 }}
                                             />
-                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '0.8rem', background: '#2D1414', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '0.8rem', background: '#2D1414', fontSize: '0.9rem', height: 'fit-content', alignSelf: 'center' }}>
                                                 Contact Us Now
                                             </button>
                                         </form>
