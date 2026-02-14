@@ -176,7 +176,7 @@ const ServicesPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '6rem', marginBottom: '3rem', textAlign: 'center', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ marginTop: '6rem', marginBottom: '3rem', textAlign: 'center', flexDirection: 'column', alignItems: 'center' }}>
                     <h2 style={{ fontSize: '3rem', color: '#1A1A1A' }}>Agape Group Services</h2>
                     <p style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.2rem' }}>
                         Providing excellence across multiple sectors to serve Botswana's growing needs.
