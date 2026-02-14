@@ -636,8 +636,36 @@ body {
     }
 
     .nav-actions>div {
-        display: none !important;
-        /* Hide social icons wrapping div on mobile */
+        display: flex !important;
+        gap: 0.8rem !important;
+    }
+
+    .nav-actions svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    @media (max-width: 400px) {
+        .navbar {
+            padding: 0 3%;
+        }
+
+        .logo img {
+            height: 3.5rem !important;
+        }
+
+        .nav-actions {
+            gap: 0.5rem;
+        }
+
+        .nav-actions>div {
+            gap: 0.5rem !important;
+        }
+
+        .nav-actions svg {
+            width: 16px;
+            height: 16px;
+        }
     }
 
     .get-started-btn {
@@ -1044,37 +1072,64 @@ body {
 @media (max-width: 800px) {
     .popup-content {
         flex-direction: column;
-        max-height: 80vh;
-        overflow-y: auto;
+        max-height: none;
+        overflow-y: visible;
     }
 
     .popup-left {
         display: flex;
         width: 100%;
-        padding: 2rem 1rem 0;
-        /* Add padding to top, reduce sides */
+        padding: 1rem 1rem 0;
+        /* Reduced padding */
         justify-content: center;
     }
 
     .popup-app-img {
-        max-height: 200px;
-        /* Increased size */
+        max-height: 100px;
+        /* Further reduced to save vertical space */
         margin-bottom: 0;
         transform: rotate(0deg);
     }
 
     .popup-right {
-        padding: 1.5rem;
-        /* Reduced padding */
+        padding: 1rem;
+        /* Further reduced padding */
         width: 100%;
     }
 
+    .popup-right h2 {
+        font-size: 1.4rem !important;
+        /* Smaller title */
+        margin-bottom: 0.5rem !important;
+    }
+
+    .popup-desc {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .popup-right svg[width="100"] {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
     .waitlist-popup {
-        max-width: 95%;
-        border-radius: 20px;
-        max-height: 90vh;
-        /* Ensure it fits in viewport */
+        max-width: 90%;
+        width: 340px;
+        /* Fixed small width for mobile */
+        border-radius: 15px;
+        max-height: 95vh;
         overflow-y: auto;
+        padding: 0;
+    }
+
+    .popup-form {
+        margin-bottom: 1rem !important;
+    }
+
+    .popup-input {
+        padding: 0.7rem !important;
+        font-size: 0.9rem !important;
     }
 
     .close-popup {

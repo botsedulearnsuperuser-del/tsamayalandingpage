@@ -267,7 +267,9 @@ const ServicesPage: React.FC = () => {
                                         <button className="try-free-btn" onClick={handleClosePopup} style={{ width: '100%', background: '#1a1a1a' }}>Close</button>
                                     </div>
                                 )}
-                                <p className="popup-footer-text" style={{ marginTop: '1rem', fontSize: '0.75rem' }}>We promise not to spam you. Safety and reliability are our priorities.</p>
+                                <p className="popup-footer-text" style={{ marginTop: '0.8rem', fontSize: '0.7rem', lineHeight: '1.3', color: '#666' }}>
+                                    We'll contact you within 24 hours to finalize your transport booking details.
+                                </p>
                             </div>
                         </div>
                     </div>
