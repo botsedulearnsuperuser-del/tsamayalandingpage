@@ -11,6 +11,8 @@ const AboutUsPage: React.FC = () => {
     const [showWaitlist, setShowWaitlist] = useState(false);
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [waitlistEmail, setWaitlistEmail] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [waitlistStep, setWaitlistStep] = useState(1);
     const [agreedToEmails, setAgreedToEmails] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,6 +42,8 @@ const AboutUsPage: React.FC = () => {
                 },
                 body: JSON.stringify({
                     email: waitlistEmail,
+                    fullName: fullName,
+                    phoneNumber: phoneNumber,
                     consent: agreedToEmails
                 })
             });
@@ -56,6 +60,8 @@ const AboutUsPage: React.FC = () => {
     const handleClosePopup = () => {
         setShowWaitlist(false);
         setWaitlistEmail('');
+        setFullName('');
+        setPhoneNumber('');
         setWaitlistStep(1);
         setAgreedToEmails(false);
     };
@@ -233,7 +239,9 @@ const AboutUsPage: React.FC = () => {
                                         <h2>Contact Agape</h2>
                                         <p className="popup-desc">By contacting us, you get direct access to our transport solutions.</p>
                                         <form className="popup-form" onSubmit={handleWaitlistSubmit}>
+                                            <input type="text" placeholder="Full Name" required value={fullName} onChange={(e) => setFullName(e.target.value)} className="popup-input" />
                                             <input type="email" placeholder="Enter your email address" required value={waitlistEmail} onChange={(e) => setWaitlistEmail(e.target.value)} className="popup-input" />
+                                            <input type="tel" placeholder="Phone Number" required value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="popup-input" />
                                             <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '0.8rem', background: '#2D1414', fontSize: '0.9rem', marginBottom: '1.5rem' }}>Contact Us Now</button>
                                         </form>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '0.5rem' }}>
@@ -253,7 +261,7 @@ const AboutUsPage: React.FC = () => {
                                 ) : waitlistStep === 2 ? (
                                     <>
                                         <h2>One last thing...</h2>
-                                        <p className="popup-desc">We'd love to keep you in the loop as we approach our launch date and beta testing phase.</p>
+                                        <p className="popup-desc">We'd love to keep you in the loop as we approach our launch date and beta testing phase for Agape Transport and Logistics.</p>
                                         <div className="consent-container" style={{ marginBottom: '2rem', display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                                             <input type="checkbox" id="email-consent" checked={agreedToEmails} onChange={(e) => setAgreedToEmails(e.target.checked)} style={{ marginTop: '5px', cursor: 'pointer', width: '20px', height: '20px' }} />
                                             <label htmlFor="email-consent" style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.4', cursor: 'pointer' }}>I agree to receive communications from Agape regarding service updates and offers.</label>
