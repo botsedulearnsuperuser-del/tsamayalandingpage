@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LegaeLandingPage.css';
 
 const LegaeLandingPage: React.FC = () => {
+    const navigate = useNavigate();
     // REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIG_gYJf9uhg9O93wsigvyjBtTsSFJR_NJF5gEkKApsQDJP6WJhRvJkAFGhm4cg7Uw8A/exec";
 
@@ -15,6 +17,54 @@ const LegaeLandingPage: React.FC = () => {
     const constructionImg = `/assets/AGAPE/construction.png`;
     const floristImg = `/assets/AGAPE/florist.png`;
     const securityImg = `/assets/AGAPE/security.png`;
+
+    const heroTransportBg = `/assets/AGAPE/SELLING A Car - Slider (2).png`;
+    const heroConstructionBg = `/assets/AGAPE/agape_construction_bg.png`;
+    const heroSecurityBg = `/assets/AGAPE/security.png`;
+    const heroFloristBg = `/assets/AGAPE/agape_florist_bg.png`;
+
+    const slides = [
+        {
+            title: "Seamless Transport & Logistics Solutions",
+            subtitle: "Reliable, efficient, and secure transportation services across Botswana. We move what matters most to you.",
+            bg: heroTransportBg,
+            bgStyle: { backgroundSize: 'cover', backgroundPosition: 'center' },
+            secondaryAction: {
+                label: "Learn More",
+                onClick: () => navigate('/transport')
+            }
+        },
+        {
+            title: "Florist & Decor Services",
+            subtitle: "Creative services driven by excellence. We provide stunning floral arrangements and decor solutions for all your special occasions.",
+            bg: heroFloristBg,
+            bgStyle: { backgroundSize: 'cover', backgroundPosition: 'center' },
+            secondaryAction: {
+                label: "View & Order Flowers",
+                onClick: () => navigate('/flowers')
+            }
+        },
+        {
+            title: "Agape Construction",
+            subtitle: "Built on trust. We provide reliable construction services for residential and commercial projects, ensuring quality and durability in every build.",
+            bg: heroConstructionBg,
+            bgStyle: { backgroundSize: 'cover', backgroundPosition: 'center' },
+            secondaryAction: {
+                label: "Learn More",
+                onClick: () => navigate('/construction')
+            }
+        },
+        {
+            title: "Agape Security Services",
+            subtitle: "Your safety is our priority. We offer professional security solutions tailored to protect what matters most to you and your business.",
+            bg: heroSecurityBg,
+            bgStyle: { backgroundSize: 'contain', backgroundPosition: 'right center', backgroundColor: '#111' },
+            secondaryAction: {
+                label: "Learn More",
+                onClick: () => navigate('/security')
+            }
+        }
+    ];
 
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -32,6 +82,14 @@ const LegaeLandingPage: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [slides.length]);
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -51,6 +109,13 @@ const LegaeLandingPage: React.FC = () => {
             top: 0,
             behavior: 'smooth'
         });
+    };
+
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const handleWaitlistSubmit = (e: React.FormEvent) => {
@@ -132,9 +197,13 @@ const LegaeLandingPage: React.FC = () => {
                     <img src={brandLogo} alt="Agape Logo" style={{ height: '4rem', width: 'auto', objectFit: 'contain', display: 'block' }} />
                 </div>
                 <ul className="nav-links">
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="/services">Services</a></li>
+                    <li><a href="/transport">Transport</a></li>
+                    <li><a href="/security">Security</a></li>
+                    <li><a href="/construction">Construction</a></li>
+                    <li><a href="/flowers">Florist</a></li>
+                    <li><a href="/galleries">Galleries</a></li>
                 </ul>
                 <div className="nav-actions">
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -161,9 +230,13 @@ const LegaeLandingPage: React.FC = () => {
 
                 <div className={`mobile-nav-dropdown ${isMenuOpen ? 'active' : ''}`}>
                     <ul className="mobile-nav-links">
-                        <li><a href="/about" onClick={() => setIsMenuOpen(false)}>About Us</a></li>
-                        <li><a href="#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonials</a></li>
+                        <li><a href="/about" onClick={() => setIsMenuOpen(false)}>About</a></li>
                         <li><a href="/services" onClick={() => setIsMenuOpen(false)}>Services</a></li>
+                        <li><a href="/transport" onClick={() => setIsMenuOpen(false)}>Transport</a></li>
+                        <li><a href="/security" onClick={() => setIsMenuOpen(false)}>Security</a></li>
+                        <li><a href="/construction" onClick={() => setIsMenuOpen(false)}>Construction</a></li>
+                        <li><a href="/flowers" onClick={() => setIsMenuOpen(false)}>Florist</a></li>
+                        <li><a href="/galleries" onClick={() => setIsMenuOpen(false)}>Galleries</a></li>
                     </ul>
                     <button className="mobile-get-started" onClick={() => { setIsMenuOpen(false); setShowWaitlist(true); }}>
                         Get Started
@@ -172,21 +245,59 @@ const LegaeLandingPage: React.FC = () => {
             </nav >
 
             {/* Hero Section */}
-            < header className="hero" >
-                <div className="hero-container">
-                    <div className="hero-content-wrapper">
-                        <h1>Seamless Transport & Logistics Solutions</h1>
-                        <p className="hero-subtitle">
-                            Reliable, efficient, and secure transportation services across Botswana. We move what matters most to you.
-                        </p>
-                        <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us</button>
-                    </div>
+            <header className="hero">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`hero-slide ${index === currentSlide ? 'active' : ''}`}
+                        style={{
+                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("${slide.bg}")`,
+                            ...slide.bgStyle
+                        }}
+                    >
+                        <div className="hero-container">
+                            <div className="hero-content-wrapper">
+                                <h1>{slide.title}</h1>
+                                <p className="hero-subtitle">{slide.subtitle}</p>
+                                <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap' }}>
+                                    {slide.secondaryAction && (
+                                        <button
+                                            className="try-free-btn"
+                                            onClick={slide.secondaryAction.onClick}
+                                            style={{ background: '#A31D1D', color: 'white', border: 'none', padding: '0.6rem 1.6rem', fontSize: '0.9rem' }}
+                                        >
+                                            {slide.secondaryAction.label}
+                                        </button>
+                                    )}
+                                    <button
+                                        className="try-free-btn secondary"
+                                        onClick={scrollToContact}
+                                        style={{ background: 'transparent', border: '1px solid white', color: 'white', padding: '0.6rem 1.6rem', fontSize: '0.9rem' }}
+                                    >
+                                        Contact Us
+                                    </button>
+                                </div>
+                            </div>
 
-                    <div className="hero-image-container">
-                        <img src={heroHandImg} alt="Legae App" className="hero-phone-img" />
+                            {index === 0 && (
+                                <div className="hero-image-container">
+                                    <img src={heroHandImg} alt="Legae App" className="hero-phone-img" />
+                                </div>
+                            )}
+                        </div>
                     </div>
+                ))}
+
+                <div className="slider-dots">
+                    {slides.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`dot ${index === currentSlide ? 'active' : ''}`}
+                            onClick={() => setCurrentSlide(index)}
+                        ></span>
+                    ))}
                 </div>
-            </header >
+            </header>
 
             {/* Features Section */}
             < section className="features" id="features" >
@@ -362,7 +473,7 @@ const LegaeLandingPage: React.FC = () => {
             </section >
 
             {/* Early Access */}
-            < section className="early-access" id="gallery" >
+            <section className="early-access" id="contact" >
                 <h2>Stay Connected</h2>
                 <p>Be the first to know about special offers, new routes, and service updates — follow us on social media.</p>
                 <button className="try-free-btn" style={{ background: '#A31D1D', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Contact Us</button>

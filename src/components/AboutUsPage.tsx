@@ -79,9 +79,11 @@ const AboutUsPage: React.FC = () => {
                     </a>
                 </div>
                 <ul className="nav-links">
-                    <li><a href="/about" style={{ color: 'var(--legae-red)', textDecoration: 'underline' }}>About Us</a></li>
+                    <li><a href="/about">About Us</a></li>
                     <li><a href="/#testimonials">Testimonials</a></li>
-                    <li><a href="/services">Services</a></li>
+                    <li><a href="/services" style={{ color: 'var(--legae-red)', textDecoration: 'underline' }}>Services</a></li>
+                    <li><a href="/flowers">Florist</a></li>
+                    <li><a href="/galleries">Galleries</a></li>
                 </ul>
                 <div className="nav-actions">
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -110,6 +112,7 @@ const AboutUsPage: React.FC = () => {
                         <li><a href="/about" onClick={() => setIsMenuOpen(false)}>About Us</a></li>
                         <li><a href="/#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonials</a></li>
                         <li><a href="/services" onClick={() => setIsMenuOpen(false)}>Services</a></li>
+                        <li><a href="/flowers" onClick={() => setIsMenuOpen(false)}>Florist</a></li>
                     </ul>
                     <button className="mobile-get-started" onClick={() => { setIsMenuOpen(false); setShowWaitlist(true); }}>
                         Get Started
@@ -140,7 +143,7 @@ const AboutUsPage: React.FC = () => {
 
                 <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 768 ? '1fr' : 'repeat(2, 1fr)', gap: window.innerWidth < 768 ? '2rem' : '4rem', alignItems: 'center', marginBottom: '4rem' }}>
                     <div>
-                        <img src={visionImg} alt="Our Vision" style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', objectFit: 'contain', maxHeight: '500px' }} />
+                        <img src={visionImg} alt="Our Vision" style={{ width: '100%', borderRadius: '0', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', objectFit: 'contain', maxHeight: '500px' }} />
                     </div>
                     <div>
                         <h3 style={{ fontSize: window.innerWidth < 768 ? '1.8rem' : '2rem', marginBottom: '1.5rem', color: '#2D1414' }}>Why Choose Us?</h3>
@@ -182,24 +185,24 @@ const AboutUsPage: React.FC = () => {
                     <h3 style={{ fontSize: window.innerWidth < 768 ? '2rem' : '2.5rem', textAlign: 'center', marginBottom: '3rem', color: '#2D1414' }}>Our Specialized Sectors</h3>
                     <div style={{ display: 'grid', gridTemplateColumns: window.innerWidth < 768 ? '1fr' : 'repeat(3, 1fr)', gap: '2rem' }}>
                         <div style={{ textAlign: 'center' }}>
-                            <img src={constructionImg} alt="Construction" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '15px', marginBottom: '1.5rem' }} />
+                            <img src={constructionImg} alt="Construction" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0', marginBottom: '1.5rem' }} />
                             <h4 style={{ fontSize: '1.5rem', color: '#A31D1D', marginBottom: '1rem' }}>Agape Construction</h4>
                             <p style={{ color: '#666' }}>Delivering quality infrastructure and building solutions across Botswana.</p>
                         </div>
                         <div style={{ textAlign: 'center' }}>
-                            <img src={securityImg} alt="Security" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '15px', marginBottom: '1.5rem' }} />
+                            <img src={securityImg} alt="Security" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0', marginBottom: '1.5rem' }} />
                             <h4 style={{ fontSize: '1.5rem', color: '#A31D1D', marginBottom: '1rem' }}>Agape Security</h4>
                             <p style={{ color: '#666' }}>Professional security services built on trust and vigilance.</p>
                         </div>
                         <div style={{ textAlign: 'center' }}>
-                            <img src={floristImg} alt="Florist & Decor" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '15px', marginBottom: '1.5rem' }} />
+                            <img src={floristImg} alt="Florist & Decor" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0', marginBottom: '1.5rem' }} />
                             <h4 style={{ fontSize: '1.5rem', color: '#A31D1D', marginBottom: '1rem' }}>Agape Florist & Decor</h4>
                             <p style={{ color: '#666' }}>Creative designs and excellence in floral and event styling.</p>
                         </div>
                     </div>
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '4rem', background: '#FDF2F2', padding: '3rem', borderRadius: '24px' }}>
+                <div style={{ textAlign: 'center', marginTop: '4rem', background: '#FDF2F2', padding: '3rem', borderRadius: '0' }}>
                     <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Get in touch for any of our services</h3>
                     <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Call us: (+267) 74 731 334</p>
                     <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us Now</button>

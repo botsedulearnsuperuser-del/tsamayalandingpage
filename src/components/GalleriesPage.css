@@ -1,0 +1,237 @@
+:root {
+    --flower-red: #A31D1D;
+    --flower-pink: #FDF2F2;
+    --flower-white: #FFFFFF;
+    --flower-text: #1A1A1A;
+    --flower-text-muted: #6B7280;
+    --flower-border: #E5E7EB;
+}
+
+.gallery-mode {
+    font-family: 'Outfit', sans-serif;
+    color: var(--flower-text);
+    background: #FAFAFA;
+}
+
+/* Nav & Header items should inherit from FlowersPage.css if they are loaded globally, 
+   but we'll re-apply some key ones for safety if needed */
+
+.gallery-main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 5%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    height: 280px;
+    /* Reduced height as requested */
+    background: #eee;
+}
+
+.gallery-img-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    color: white;
+    opacity: 1;
+    /* Always visible as requested */
+    transition: background 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.gallery-item-overlay h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.gallery-item-overlay span {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Logistics Promo Card */
+.gallery-item.logistics-promo-card {
+    grid-column: span 2;
+    height: 340px;
+    /* Slightly taller for clear visibility */
+    display: flex;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--flower-border);
+    margin-bottom: 1.5rem;
+}
+
+.promo-image-side {
+    flex: 1.3;
+    background: #fdf2f2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.promo-image-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Full panoramic visibility as requested */
+}
+
+.promo-content-side {
+    flex: 1;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.promo-content-side h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: var(--flower-red);
+    line-height: 1.2;
+}
+
+.promo-content-side p {
+    color: var(--flower-text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.promo-contact-btn {
+    background: var(--flower-red);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.2s;
+}
+
+.promo-contact-btn:hover {
+    transform: translateY(-2px);
+    background: #8e1a1a;
+    box-shadow: 0 5px 15px rgba(163, 29, 29, 0.2);
+}
+
+@media (max-width: 900px) {
+    .gallery-item.logistics-promo-card {
+        grid-column: span 1;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .promo-image-side {
+        height: 200px;
+        padding: 1rem;
+    }
+
+    .promo-content-side {
+        padding: 1.5rem;
+    }
+}
+
+.gallery-item.header-banner-item {
+    grid-column: span 2;
+    /* Make the wide banner span 2 columns to show it better */
+}
+
+@media (max-width: 900px) {
+    .gallery-item.header-banner-item {
+        grid-column: span 1;
+    }
+}
+
+/* Shortened Banner Styles - Requested before footer */
+.short-banner-container {
+    padding: 3rem 5%;
+    background: #fdf2f2;
+    display: flex;
+    justify-content: center;
+}
+
+.short-banner {
+    width: 100%;
+    max-width: 1200px;
+    height: 320px;
+    /* Increased height to show more of the image */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.flower-footer {
+    padding: 4rem 5%;
+    text-align: center;
+    background: white;
+    border-top: 1px solid var(--flower-border);
+}
+
+.flower-footer p {
+    color: var(--flower-text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Re-styling nav-actions for consistency */
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .short-banner-container {
+        padding: 2rem 5%;
+    }
+
+    .short-banner {
+        height: 120px;
+        /* Very short on mobile */
+        border-radius: 0;
+    }
+}

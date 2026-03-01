@@ -22,6 +22,19 @@ const ServicesPage: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    React.useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const section = urlParams.get('section');
+        if (section) {
+            const element = document.getElementById(section);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 500);
+            }
+        }
+    }, []);
+
     // GOOGLE SCRIPT URL (Same as Landing Page)
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzIG_gYJf9uhg9O93wsigvyjBtTsSFJR_NJF5gEkKApsQDJP6WJhRvJkAFGhm4cg7Uw8A/exec";
 
@@ -83,6 +96,8 @@ const ServicesPage: React.FC = () => {
                     <li><a href="/about">About Us</a></li>
                     <li><a href="/#testimonials">Testimonials</a></li>
                     <li><a href="/services" style={{ color: 'var(--legae-red)', textDecoration: 'underline' }}>Services</a></li>
+                    <li><a href="/flowers">Florist</a></li>
+                    <li><a href="/galleries">Galleries</a></li>
                 </ul>
                 <div className="nav-actions">
                     <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -111,6 +126,7 @@ const ServicesPage: React.FC = () => {
                         <li><a href="/about" onClick={() => setIsMenuOpen(false)}>About Us</a></li>
                         <li><a href="/#testimonials" onClick={() => setIsMenuOpen(false)}>Testimonials</a></li>
                         <li><a href="/services" onClick={() => setIsMenuOpen(false)}>Services</a></li>
+                        <li><a href="/flowers" onClick={() => setIsMenuOpen(false)}>Florist</a></li>
                     </ul>
                     <button className="mobile-get-started" onClick={() => { setIsMenuOpen(false); setShowWaitlist(true); }}>
                         Get Started
@@ -138,9 +154,10 @@ const ServicesPage: React.FC = () => {
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Combi & Bus Options</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                            <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                 Combi seats available for Primary & High School students. Spaces are limited and filling up fast – secure your child’s seat today and enjoy stress-free school mornings.
                             </p>
+                            <button className="try-free-btn" onClick={() => window.location.href = '/transport'} style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', borderRadius: '50px' }}>Learn More</button>
                         </div>
                     </div>
 
@@ -151,9 +168,10 @@ const ServicesPage: React.FC = () => {
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Lady-Driven Care</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                            <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                 Lady-driven for extra care and peace of mind. Care in every delivery. Give your child a comfortable, secure, and on-time ride.
                             </p>
+                            <button className="try-free-btn" onClick={() => window.location.href = '/transport'} style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', borderRadius: '50px' }}>Learn More</button>
                         </div>
                     </div>
 
@@ -189,28 +207,30 @@ const ServicesPage: React.FC = () => {
                     gap: '2rem'
                 }}>
                     {/* Card 4: Construction */}
-                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
+                    <div id="construction" style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
                             <img src={constructionImg} alt="Construction" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Agape Construction</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                            <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                 Reliable construction for residential and commercial projects. We build with integrity and quality materials.
                             </p>
+                            <button className="try-free-btn" onClick={() => window.location.href = '/construction'} style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', borderRadius: '50px' }}>Learn More Details</button>
                         </div>
                     </div>
 
                     {/* Card 5: Security */}
-                    <div style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
+                    <div id="security" style={{ background: '#F9FAFB', border: '1px solid #eee', overflow: 'hidden', borderRadius: '0', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ height: '250px', overflow: 'hidden' }}>
                             <img src={securityImg} alt="Security" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
                         <div style={{ padding: '2rem', flex: 1 }}>
                             <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Agape Security</h3>
-                            <p style={{ color: '#666', lineHeight: '1.6' }}>
+                            <p style={{ color: '#666', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                 Professional protection services for homes and businesses. Trained personnel and modern security solutions.
                             </p>
+                            <button className="try-free-btn" onClick={() => window.location.href = '/security'} style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', borderRadius: '50px' }}>Explore Security</button>
                         </div>
                     </div>
 
