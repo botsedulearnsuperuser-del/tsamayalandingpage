@@ -31,6 +31,7 @@ const FlowersPage: React.FC = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [whatsappProduct, setWhatsappProduct] = useState<string | null>(null);
     const [showPrivacy, setShowPrivacy] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzUXSjFhbgCOlAsAIkUMBPKSrSbkILoL7ac0DlKks8PsXSUI0eRvA0Hp87J432OMe9O/exec';
 
@@ -200,24 +201,37 @@ const FlowersPage: React.FC = () => {
                 <div className="nav-container">
                     <div className="logo" onClick={() => navigate('/')}>
                         <img src={brandLogo} alt="Agape Logo" />
-                        <span> / Agape Florist</span>
+                        <span className="logo-text"> / Agape Florist</span>
                     </div>
-                    <ul className="nav-links">
-                        <li onClick={() => navigate('/')}>Home</li>
-                        <li onClick={() => navigate('/about')}>About</li>
-                        <li onClick={() => navigate('/services')}>Services</li>
-                        <li onClick={() => navigate('/transport')}>Transport</li>
-                        <li onClick={() => navigate('/security')}>Security</li>
-                        <li onClick={() => navigate('/construction')}>Construction</li>
-                        <li onClick={() => navigate('/flowers')}>Florist</li>
-                        <li onClick={() => navigate('/galleries')}>Galleries</li>
-                    </ul>
-                    <div className="nav-actions" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-                        <div className="cart-icon-wrapper" onClick={() => setIsCheckoutOpen(true)} style={{ position: 'relative', cursor: 'pointer' }}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M14.665 2.33a.75.75 0 0 1 1.006.335l2.201 4.402c1.353.104 2.202.37 2.75 1.047c.9 1.114.541 2.79-.177 6.143l-.429 2c-.487 2.273-.73 3.409-1.555 4.076S16.474 21 14.15 21h-4.3c-2.324 0-3.486 0-4.31-.667c-.826-.667-1.07-1.803-1.556-4.076l-.429-2c-.718-3.353-1.078-5.029-.177-6.143c.548-.678 1.397-.943 2.75-1.047l2.201-4.402a.75.75 0 0 1 1.342.67l-1.835 3.67Q8.559 7 9.422 7h5.156q.863-.001 1.586.005l-1.835-3.67a.75.75 0 0 1 .336-1.006M7.25 12a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75M10 14.25a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5z" clip-rule="evenodd" /></svg>
-                            {cart.length > 0 && <span className="cart-badge">{cart.reduce((sum, item) => sum + item.quantity, 0)}</span>}
+
+                    <button className="mobile-menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12h18M3 6h18M3 18h18" /></svg>
+                    </button>
+
+                    <div className={`nav-wrapper ${isMenuOpen ? 'active' : ''}`}>
+                        <ul className="nav-links">
+                            <li onClick={() => navigate('/')}>Home</li>
+                            <li onClick={() => navigate('/about')}>About</li>
+                            <li onClick={() => navigate('/services')}>Services</li>
+                            <li onClick={() => navigate('/transport')}>Transport</li>
+                            <li onClick={() => navigate('/security')}>Security</li>
+                            <li onClick={() => navigate('/construction')}>Construction</li>
+                            <li onClick={() => navigate('/flowers')}>Florist</li>
+                            <li onClick={() => navigate('/galleries')}>Galleries</li>
+                        </ul>
+                        <div className="nav-actions" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                            <div className="cart-icon-wrapper desk-cart-icon" onClick={() => setIsCheckoutOpen(true)} style={{ position: 'relative', cursor: 'pointer' }}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M14.665 2.33a.75.75 0 0 1 1.006.335l2.201 4.402c1.353.104 2.202.37 2.75 1.047c.9 1.114.541 2.79-.177 6.143l-.429 2c-.487 2.273-.73 3.409-1.555 4.076S16.474 21 14.15 21h-4.3c-2.324 0-3.486 0-4.31-.667c-.826-.667-1.07-1.803-1.556-4.076l-.429-2c-.718-3.353-1.078-5.029-.177-6.143c.548-.678 1.397-.943 2.75-1.047l2.201-4.402a.75.75 0 0 1 1.342.67l-1.835 3.67Q8.559 7 9.422 7h5.156q.863-.001 1.586.005l-1.835-3.67a.75.75 0 0 1 .336-1.006M7.25 12a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75M10 14.25a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5z" clipRule="evenodd" /></svg>
+                                {cart.length > 0 && <span className="cart-badge">{cart.reduce((sum, item) => sum + item.quantity, 0)}</span>}
+                            </div>
+                            <button className="contact-btn" onClick={() => { setIsMenuOpen(false); setShowQuotePopup(true); }}>Get a Quote</button>
                         </div>
-                        <button className="contact-btn" onClick={() => setShowQuotePopup(true)}>Get a Quote</button>
+                    </div>
+
+                    {/* Mobile Cart Icon - always visible */}
+                    <div className="cart-icon-wrapper mobile-cart-icon" onClick={() => setIsCheckoutOpen(true)} style={{ position: 'relative', cursor: 'pointer', display: 'none' }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M14.665 2.33a.75.75 0 0 1 1.006.335l2.201 4.402c1.353.104 2.202.37 2.75 1.047c.9 1.114.541 2.79-.177 6.143l-.429 2c-.487 2.273-.73 3.409-1.555 4.076S16.474 21 14.15 21h-4.3c-2.324 0-3.486 0-4.31-.667c-.826-.667-1.07-1.803-1.556-4.076l-.429-2c-.718-3.353-1.078-5.029-.177-6.143c.548-.678 1.397-.943 2.75-1.047l2.201-4.402a.75.75 0 0 1 1.342.67l-1.835 3.67Q8.559 7 9.422 7h5.156q.863-.001 1.586.005l-1.835-3.67a.75.75 0 0 1 .336-1.006M7.25 12a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 0 1.5H8a.75.75 0 0 1-.75-.75M10 14.25a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5z" clipRule="evenodd" /></svg>
+                        {cart.length > 0 && <span className="cart-badge">{cart.reduce((sum, item) => sum + item.quantity, 0)}</span>}
                     </div>
                 </div>
             </nav>

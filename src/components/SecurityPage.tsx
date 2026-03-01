@@ -42,6 +42,7 @@ const SecurityPage: React.FC = () => {
     ];
 
     const [showPrivacy, setShowPrivacy] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <div className="security-page">
@@ -50,20 +51,27 @@ const SecurityPage: React.FC = () => {
                 <div className="nav-container">
                     <div className="logo" onClick={() => navigate('/')}>
                         <img src={brandLogo} alt="Agape Logo" />
-                        <span> / Agape Security</span>
+                        <span className="logo-text"> / Agape Security</span>
                     </div>
-                    <ul className="nav-links">
-                        <li onClick={() => navigate('/')}>Home</li>
-                        <li onClick={() => navigate('/about')}>About</li>
-                        <li onClick={() => navigate('/services')}>Services</li>
-                        <li onClick={() => navigate('/transport')}>Transport</li>
-                        <li onClick={() => navigate('/security')}>Security</li>
-                        <li onClick={() => navigate('/construction')}>Construction</li>
-                        <li onClick={() => navigate('/flowers')}>Florist</li>
-                        <li onClick={() => navigate('/galleries')}>Galleries</li>
-                    </ul>
-                    <div className="nav-actions">
-                        <button className="contact-btn" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}>Get Protection</button>
+
+                    <button className="mobile-menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12h18M3 6h18M3 18h18" /></svg>
+                    </button>
+
+                    <div className={`nav-wrapper ${isMenuOpen ? 'active' : ''}`}>
+                        <ul className="nav-links">
+                            <li onClick={() => navigate('/')}>Home</li>
+                            <li onClick={() => navigate('/about')}>About</li>
+                            <li onClick={() => navigate('/services')}>Services</li>
+                            <li onClick={() => navigate('/transport')}>Transport</li>
+                            <li onClick={() => navigate('/security')}>Security</li>
+                            <li onClick={() => navigate('/construction')}>Construction</li>
+                            <li onClick={() => navigate('/flowers')}>Florist</li>
+                            <li onClick={() => navigate('/galleries')}>Galleries</li>
+                        </ul>
+                        <div className="nav-actions">
+                            <button className="contact-btn" onClick={() => { setIsMenuOpen(false); window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }}>Get Protection</button>
+                        </div>
                     </div>
                 </div>
             </nav>
