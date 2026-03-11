@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --legae-red: #A31D1D;
     --legae-red-dark: #7B1616;
     --legae-pink: #FDF2F2;
@@ -781,8 +781,8 @@ body {
     width: 100%;
     max-width: 750px;
     /* Reduced from 900px */
-    border-radius: 12px;
-    /* Reduced radius for less rounded corners */
+    border-radius: 32px;
+    /* Slightly smaller radius */
     position: relative;
     overflow: hidden;
     animation: popupScale 0.4s cubic-bezier(0.16, 1, 0.3, 1);

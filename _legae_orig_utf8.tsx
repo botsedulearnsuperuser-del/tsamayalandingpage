@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import './LegaeLandingPage.css';
 
 const LegaeLandingPage: React.FC = () => {
@@ -9,7 +9,7 @@ const LegaeLandingPage: React.FC = () => {
     const featureImg1 = `${assetsPath}Untitled_design__3_-removebg-preview.png`;
     const featureImg2 = `${assetsPath}Untitled_design__4_-removebg-preview.png`;
     const featureImg3 = `${assetsPath}Untitled_design__5_-removebg-preview.png`;
-    const brandLogo = `${assetsPath}LOGOS WORKFILE (48) 1.png`;
+    const brandLogo = `${assetsPath}logo-for-boroko-mobile.png`;
 
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -67,16 +67,8 @@ const LegaeLandingPage: React.FC = () => {
             {/* Navigation */}
             <nav className="navbar">
                 <div className="logo">
-                    <img 
-                        src={brandLogo} 
-                        alt="Legae Logo" 
-                        style={{ 
-                            height: '2.5rem', 
-                            width: 'auto', 
-                            objectFit: 'contain',
-                            filter: 'brightness(0) saturate(100%) invert(18%) sepia(85%) saturate(3065%) hue-rotate(345deg) brightness(83%) contrast(92%)' 
-                        }} 
-                    />
+                    <img src={brandLogo} alt="Legae Logo" style={{ height: '2.5rem', width: 'auto', objectFit: 'contain' }} />
+                    Legae
                 </div>
                 <ul className="nav-links">
                     <li><a href="#features">Features</a></li>
@@ -197,7 +189,7 @@ const LegaeLandingPage: React.FC = () => {
                                 </span>
                                 Student Accommodation in Gabs
                             </span>
-                            <span>→</span>
+                            <span>ΓåÆ</span>
                         </div>
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -206,7 +198,7 @@ const LegaeLandingPage: React.FC = () => {
                                 </span>
                                 Luxury Villas in Phakalane
                             </span>
-                            <span>→</span>
+                            <span>ΓåÆ</span>
                         </div>
                         <div className="scenario-item">
                             <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -215,7 +207,7 @@ const LegaeLandingPage: React.FC = () => {
                                 </span>
                                 Affordable Rentals in Tlokweng
                             </span>
-                            <span>→</span>
+                            <span>ΓåÆ</span>
                         </div>
                     </div>
                 </div>
@@ -278,11 +270,12 @@ const LegaeLandingPage: React.FC = () => {
 
             {/* Footer */}
             <footer className="footer">
+                <div className="footer-logo-large" style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center' }}>
+                    <img src={brandLogo} alt="Legae Logo" style={{ height: '3rem', width: 'auto' }} />
+                    Legae
+                </div>
                 <div className="footer-grid">
                     <div className="footer-info">
-                        <div className="footer-logo-large" style={{ textAlign: 'left', marginBottom: '1.5rem', display: 'block' }}>
-                            Legae
-                        </div>
                         <p style={{ color: '#666', maxWidth: '300px' }}>
                             Making home finding easy and accessible for everyone in Botswana. Unlocking your future, one home at a time.
                         </p>
