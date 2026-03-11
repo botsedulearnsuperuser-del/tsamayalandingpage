@@ -52,10 +52,30 @@ body {
     gap: 0.5rem;
 }
 
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--legae-text);
+}
+
+.close-menu-btn {
+    display: none;
+}
+
 .nav-links {
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
@@ -582,9 +602,77 @@ body {
         padding: 1rem 5%;
     }
 
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
     .nav-links {
-        display: none;
-        /* Hide nav links on mobile for cleaner look unless burger menu implemented */
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .close-menu-btn {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--legae-text);
+        padding: 0.5rem;
+    }
+
+    .nav-actions {
+        width: 100%;
+    }
+
+    .get-started-btn {
+        width: 100%;
+    }
+
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .hero {

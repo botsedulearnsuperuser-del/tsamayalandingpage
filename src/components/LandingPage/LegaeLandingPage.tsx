@@ -22,6 +22,7 @@ const LegaeLandingPage: React.FC = () => {
     const [waitlistEmail, setWaitlistEmail] = useState('');
     const [waitlistStep, setWaitlistStep] = useState(1);
     const [agreedToEmails, setAgreedToEmails] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -78,15 +79,31 @@ const LegaeLandingPage: React.FC = () => {
                         }} 
                     />
                 </div>
-                <ul className="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#downloads">Downloads</a></li>
-                </ul>
-                <div className="nav-actions">
-                    <button className="get-started-btn">Get Started</button>
+                
+                <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                    <button className="close-menu-btn" onClick={() => setIsMobileMenuOpen(false)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M5 5l14 14M5 19l14 -14"/></g></svg>
+                    </button>
+                    <ul className="nav-links">
+                        <li><a href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a></li>
+                        <li><a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</a></li>
+                        <li><a href="#downloads" onClick={() => setIsMobileMenuOpen(false)}>Downloads</a></li>
+                    </ul>
+                    <div className="nav-actions">
+                        <button className="get-started-btn">Get Started</button>
+                    </div>
                 </div>
+
+                <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"/></svg>
+                </button>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <div 
+                className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`} 
+                onClick={() => setIsMobileMenuOpen(false)}
+            ></div>
 
             {/* Hero Section */}
             <header className="hero">
