@@ -1,0 +1,428 @@
+/* Privacy Policy Page */
+.privacy-page {
+    min-height: 100vh;
+    background: #FAFBFC;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Navbar - matches landing page */
+.privacy-page .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5%;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.privacy-page .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.privacy-page .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.privacy-page .nav-links a {
+    text-decoration: none;
+    color: #4B5563;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.privacy-page .nav-links a:hover {
+    color: #12B5B0;
+}
+
+.privacy-page .nav-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.privacy-page .book-demo-btn {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1.5px solid #12B5B0;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.privacy-page .book-demo-btn:hover {
+    background: #12B5B0;
+    color: #fff;
+}
+
+.privacy-page .get-started-btn {
+    background: #12B5B0;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.privacy-page .get-started-btn:hover {
+    background: #0F9E9A;
+    transform: translateY(-1px);
+}
+
+.privacy-page .close-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1a1a1a;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.privacy-page .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.privacy-page .mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+
+/* Main Content */
+.privacy-main {
+    padding: 4rem 5%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.privacy-container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1A1A2E;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.privacy-last-updated {
+    color: #6B7280;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.privacy-intro {
+    color: #4B5563;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Sections */
+.privacy-section {
+    margin-bottom: 2.5rem;
+}
+
+.privacy-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1A1A2E;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #12B5B0;
+}
+
+.privacy-section h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.privacy-section p {
+    color: #4B5563;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.privacy-section ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.privacy-section li {
+    color: #4B5563;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.privacy-section li strong {
+    color: #1A1A2E;
+}
+
+/* Contact Box */
+.privacy-contact-box {
+    background: #F0FDFA;
+    border: 1px solid #D1FAE5;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.privacy-contact-box p {
+    margin: 0.25rem 0;
+    color: #374151;
+}
+
+/* Back Button */
+.privacy-back {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E5E7EB;
+    text-align: center;
+}
+
+.privacy-back .try-free-btn {
+    background: #12B5B0;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.privacy-back .try-free-btn:hover {
+    background: #0F9E9A;
+    transform: translateY(-1px);
+}
+
+/* Footer - matches landing page */
+.privacy-page .footer {
+    padding: 4rem 5% 2rem;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E7EB;
+}
+
+.privacy-page .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.privacy-page .footer-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.privacy-page .footer-links h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.25rem;
+}
+
+.privacy-page .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.privacy-page .footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.privacy-page .footer-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.privacy-page .footer-links a:hover {
+    color: #12B5B0;
+}
+
+.privacy-page .footer-bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #D1F2F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .privacy-page .navbar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .privacy-page .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 999;
+        padding: 2rem;
+    }
+
+    .privacy-page .nav-menu.active {
+        display: flex;
+    }
+
+    .privacy-page .close-menu-btn {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #1a1a1a;
+        z-index: 1001;
+        padding: 0.5rem;
+    }
+
+    .privacy-page .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #1a1a1a;
+        padding: 0.5rem;
+    }
+
+    .privacy-page .mobile-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+    }
+
+    .privacy-page .mobile-menu-overlay.active {
+        display: block;
+    }
+
+    .privacy-page .nav-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0;
+    }
+
+    .privacy-page .nav-links a {
+        font-size: 1.1rem;
+    }
+
+    .privacy-page .nav-actions {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .privacy-page .book-demo-btn,
+    .privacy-page .get-started-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .privacy-main {
+        padding: 1.5rem 1rem;
+    }
+
+    .privacy-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.15rem;
+    }
+
+    .privacy-section h3 {
+        font-size: 1rem;
+    }
+
+    .privacy-section p,
+    .privacy-section li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    .privacy-contact-box {
+        padding: 1rem;
+    }
+
+    .privacy-page .footer {
+        padding: 2rem 1rem 1.5rem;
+    }
+
+    .privacy-page .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .privacy-page .footer-links h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .privacy-page .footer-links a {
+        font-size: 0.85rem;
+    }
+
+    .privacy-page .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}

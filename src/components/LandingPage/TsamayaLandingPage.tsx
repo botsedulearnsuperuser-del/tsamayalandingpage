@@ -2,8 +2,8 @@ import React from 'react';
 import './TsamayaLandingPage.css';
 
 // Import images
-import logo from '../../assets/tsamaya/Frame.png';
-import heroImg from '../../assets/tsamaya/Assert-Hero Image 1.png';
+const logo = '/assets/Logo_20for_20Light_20Mode.png';
+const heroImg = '/assets/Gemini_Generated_Image_56m5z356m5z356m5.png';
 import stepsImg from '../../assets/tsamaya/Frame 9.png';
 
 const TsamayaLandingPage: React.FC = () => {
@@ -25,21 +25,16 @@ const TsamayaLandingPage: React.FC = () => {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            Revolutionary<br />
-            Combi and taxi<br />
-            ticketing<br />
-            solution,designed<br />
-            for the mobile<br />
-            african market
+            The Smarter,<br />
+            Safer Way to<br />
+            Move Across<br />
+            Botswana.
           </h1>
           <p className="hero-description">
-            Tsamaya's goal is to digitize combi ticketing and drive Africa's public
-            transport sector toward a fully cashless ecosystem—eliminating the use of
-            large cash notes so drivers no longer have to search for change, while giving
-            both riders and drivers greater flexibility and convenience.
+            Cashless public transit for everyone. Pay for combis, buses, and taxis instantly using your Tsamaya NFC Transit Pass or Mobile App. Safe for students, seamless for parents, and reliable for drivers.
           </p>
           <button className="join-btn" style={{ padding: '0.8rem 2rem', fontSize: '0.9rem' }}>
-            Join Waiting List
+            Get Your Transit Pass
           </button>
         </div>
         <div className="hero-mockups">
@@ -49,20 +44,20 @@ const TsamayaLandingPage: React.FC = () => {
 
       {/* How it Works Section */}
       <section className="how-it-works">
-        <h2 className="section-title">How it will Work</h2>
+        <h2 className="section-title">How It Works</h2>
 
         <div className="step-labels">
           <div className="step-label">
             <span className="step-badge">01</span>
-            <span className="step-info">Create an account by signing up</span>
+            <span className="step-info">Fund Your Wallet (Orange Money, SMEGA, MyZaka, Cards)</span>
           </div>
           <div className="step-label">
             <span className="step-badge">02</span>
-            <span className="step-info">Get Access to your Dashboard</span>
+            <span className="step-info">Tap Your Transit Pass or Scan QR to Pay</span>
           </div>
           <div className="step-label">
             <span className="step-badge">03</span>
-            <span className="step-info">Top Up Your Ticket Balance to Start Using</span>
+            <span className="step-info">Travel Securely with Instant Confirmation</span>
           </div>
         </div>
 

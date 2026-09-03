@@ -143,7 +143,7 @@ button {
 /* Standardized Footer Styles */
 .footer {
   padding: 4rem 10% 4rem;
-  background-color: #FDF2F2;
+  background-color: #F0FAF9;
   text-align: left;
 }
 
@@ -194,14 +194,14 @@ button {
 }
 
 .footer-links a:hover {
-  color: #A31D1D;
+  color: #12B5B0;
   text-decoration: underline;
 }
 
 .footer-bottom {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid #FFE4E4;
+  border-top: 1px solid #D1F2F0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -224,7 +224,7 @@ button {
 }
 
 .footer-social-links a:hover {
-  color: #A31D1D;
+  color: #12B5B0;
 }
 
 .developed-by {
@@ -232,7 +232,7 @@ button {
 }
 
 .developed-by a {
-  color: #A31D1D;
+  color: #12B5B0;
   font-weight: 600;
   text-decoration: none;
 }

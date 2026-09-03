@@ -8,6 +8,9 @@ import TransportPage from './components/TransportPage';
 import ConstructionPage from './components/ConstructionPage';
 import SecurityPage from './components/SecurityPage';
 import AccountConfirmed from './components/AccountConfirmed';
+import AuthPage from './components/Auth/AuthPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import TermsOfServicePage from './components/TermsOfServicePage';
 import './App.css';
 
 function App() {
@@ -24,6 +27,10 @@ function App() {
                     <Route path="/flowers" element={<FlowersPage />} />
                     <Route path="/galleries" element={<GalleriesPage />} />
                     <Route path="/account-confirmed" element={<AccountConfirmed />} />
+                    <Route path="/signup" element={<AuthPage />} />
+                    <Route path="/signin" element={<AuthPage />} />
+                    <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                    <Route path="/terms" element={<TermsOfServicePage />} />
                 </Routes>
             </div>
         </Router>
