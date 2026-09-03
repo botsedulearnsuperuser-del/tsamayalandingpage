@@ -275,9 +275,6 @@ const LegaeLandingPage: React.FC = () => {
                     {/* Animated Zig-Zag Transit Road (Combi & Taxi Path) */}
                     <div className="hero-transit-track-section">
                         <div className="transit-track-header">
-                            <span className="transit-network-badge">
-                                <strong>BOTSWANA TRANSIT NETWORK</strong>
-                            </span>
                             <span className="transit-track-subtext">Tap & pay across Combis, Taxis & Buses</span>
                         </div>
 
