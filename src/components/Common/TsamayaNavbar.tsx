@@ -43,11 +43,10 @@ const TsamayaNavbar: React.FC<TsamayaNavbarProps> = ({ alwaysShowCta = true, onC
                         </svg>
                     </button>
                     <ul className="nav-links">
-                        <li><a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMobileMenuOpen(false); }}>Home</a></li>
-                        <li><a href="/#benefits" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMobileMenuOpen(false); }}>Key Benefits</a></li>
-                        <li><a href="/#how-it-works" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMobileMenuOpen(false); }}>How It Works</a></li>
-                        <li><a href="/#security" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMobileMenuOpen(false); }}>Security</a></li>
-                        <li><a href="/#top-up" onClick={(e) => { e.preventDefault(); navigate('/'); setIsMobileMenuOpen(false); }}>Top-Up Partners</a></li>
+                        <li><a href="/#benefits" onClick={() => setIsMobileMenuOpen(false)}>Key Benefits</a></li>
+                        <li><a href="/#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a></li>
+                        <li><a href="/#security" onClick={() => setIsMobileMenuOpen(false)}>Security</a></li>
+                        <li><a href="/#top-up" onClick={() => setIsMobileMenuOpen(false)}>Top-Up Partners</a></li>
                     </ul>
                     <div className="nav-actions">
                         <button
