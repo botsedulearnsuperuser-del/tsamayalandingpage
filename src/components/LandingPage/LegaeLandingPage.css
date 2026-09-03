@@ -1418,9 +1418,9 @@ body {
     .hero-phone-img {
         position: static;
         width: 100%;
-        max-width: 320px;
+        max-width: 420px;
         height: auto;
-        max-height: 380px;
+        max-height: 480px;
         object-fit: contain;
         margin: 0 auto;
     }
