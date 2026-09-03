@@ -760,7 +760,13 @@ const LegaeLandingPage: React.FC = () => {
                         Visa & Mastercard <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: 'normal' }}>(Cybersource Secure)</span>
                     </span>
                 </div>
-                <button className="try-free-btn" style={{ background: '#12B5B0', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Get Your Transit Pass</button>
+                <button className="try-free-btn" style={{ background: '#12B5B0', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" style={{ marginRight: '6px', verticalAlign: 'middle' }}>
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor" d="M16 2a2 2 0 1 1-2 2a2 2 0 0 1 2-2m-3.96 1a1.5 1.5 0 1 1-1.5 1.5a1.5 1.5 0 0 1 1.5-1.5M9.09 4.5a1 1 0 1 1-1 1a1 1 0 0 1 1-1M7.04 6a1 1 0 1 1-1 1a1 1 0 0 1 1-1m7.49 6A2.5 2.5 0 0 0 17 9.24A2.6 2.6 0 0 0 14.39 7h-2.48a6 6 0 0 0-5.79 4.4a2 2 0 0 0 .11 1.4a6.8 6.8 0 0 1 .68 2.96a6.9 6.9 0 0 1-.69 2.79a1.92 1.92 0 0 0 .08 1.76a3.62 3.62 0 0 0 3.89 1.6a3.5 3.5 0 0 0 2.17-5.28a2.8 2.8 0 0 1-.45-1.63s-.23-3 2.62-3" />
+                            </svg>
+                            Get Your Transit Pass
+                        </button>
                 <div className="early-access-images">
                     <img src="/assets/FRONT (2) (1).png" alt="Tsamaya Transit Pass Front" />
                     <img src="/assets/FRONT (3) (1).png" alt="Tsamaya Transit Pass Front" />
