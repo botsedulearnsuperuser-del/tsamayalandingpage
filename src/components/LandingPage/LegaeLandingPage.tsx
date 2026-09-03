@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SEO from '../SEO';
 import './LegaeLandingPage.css';
 
 const LegaeLandingPage: React.FC = () => {
-    const assetsPath = '/assets/legaemobile/';
+    const navigate = useNavigate();
 
     // Images based on the directory scan
-    const heroHandImg = `${assetsPath}Untitled_design__2_-removebg-preview.png`;
-    const featureImg1 = `${assetsPath}Untitled_design__3_-removebg-preview.png`;
-    const featureImg2 = `${assetsPath}Untitled_design__4_-removebg-preview.png`;
-    const featureImg3 = `${assetsPath}Untitled_design__5_-removebg-preview.png`;
-    const brandLogo = `${assetsPath}LOGOS WORKFILE (48) 1.png`;
+    const heroHandImg = '/assets/Gemini_Generated_Image_56m5z356m5z356m5.png';
+    const brandLogo = '/assets/Logo_20for_20Light_20Mode.png';
 
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
@@ -21,8 +20,41 @@ const LegaeLandingPage: React.FC = () => {
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [waitlistEmail, setWaitlistEmail] = useState('');
     const [waitlistStep, setWaitlistStep] = useState(1);
-    const [agreedToEmails, setAgreedToEmails] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [heroVisible, setHeroVisible] = useState(true);
+    const [scrolledPastHero, setScrolledPastHero] = useState(false);
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [agreedToEmails, setAgreedToEmails] = useState(false);
+    const heroImageRef = React.useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Show navbar button once scrolled past hero header (around 500px)
+            setScrolledPastHero(window.scrollY > 500);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setHeroVisible(entry.isIntersecting);
+            },
+            { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -20px 0px' 
+            }
+        );
+
+        if (heroImageRef.current) {
+            observer.observe(heroImageRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -31,13 +63,55 @@ const LegaeLandingPage: React.FC = () => {
         return () => clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveSlide((prev) => (prev + 1) % 5);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        (function (C: any, A: string, L: string) {
+            let p = function (a: any, ar: any) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement("script")).src = A;
+                    cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                    const api = function () { p(api, arguments); };
+                    const namespace = ar[1];
+                    (api as any).q = (api as any).q || [];
+                    if (typeof namespace === "string") {
+                        cal.ns[namespace] = cal.ns[namespace] || api;
+                        p(cal.ns[namespace], ar);
+                        p(cal, ["initNamespace", namespace]);
+                    } else p(cal, ar);
+                    return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        const w = window as any;
+        w.Cal("init", "tsamaya-mobile-transport-payments", { origin: "https://app.cal.com" });
+        w.Cal.config = w.Cal.config || {};
+        w.Cal.config.forwardQueryParams = true;
+        w.Cal.ns["tsamaya-mobile-transport-payments"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+    }, []);
+
     const handleWaitlistSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setWaitlistStep(2);
     };
 
     const handleFinalConfirm = () => {
-        alert(`Thank you! ${waitlistEmail} has been added to the Legae waitlist.`);
+        alert(`Thank you! ${waitlistEmail} has been added to the Tsamaya priority waitlist.`);
         setShowWaitlist(false);
         setWaitlistEmail('');
         setWaitlistStep(1);
@@ -46,36 +120,79 @@ const LegaeLandingPage: React.FC = () => {
 
     const faqData = [
         {
-            question: "How do I list my property?",
-            answer: "Simply download the Legae app, create a verified property owner or agent account, and tap on the 'List Property' button. You'll be guided through uploading photos, setting a price, and providing property details."
+            question: "How does the Tsamaya NFC Transit Pass work?",
+            answer: "Just tap your physical Tsamaya Transit Pass or scan your mobile QR code against the driver's smartphone. The fare is deducted instantly from your secure cloud wallet in under a second."
         },
         {
-            question: "Is the app free to use?",
-            answer: "Legae is completely free for property seekers! For owners and agents, we offer both free basic listings and premium featured slots to help your properties get noticed faster."
+            question: "How do I top up my wallet balance?",
+            answer: "You can fund your account anytime using Orange Money (USSD push), BTC SMEGA, Mascom MyZaka, or any Visa/Mastercard debit or credit card."
         },
         {
-            question: "How do I contact agents?",
-            answer: "Each listing has a built-in 'Contact Agent' button. You can chat directly through our secure in-app messaging system or call them directly if they've enabled that option."
+            question: "What happens if I lose my transit card?",
+            answer: "Your money never lives on the physical card—it is safely stored in your cloud wallet. You can instantly activate the One-Tap Kill Switch via the web portal or mobile app to lock the lost card and link a new one seamlessly."
         },
         {
-            question: "Are the listings verified?",
-            answer: "Yes. Safety is our priority. Our team manually reviews property titles, identification documents, and conducts spot checks to ensure every listing on Legae is 100% legitimate."
+            question: "How do drivers and operators accept fares?",
+            answer: "Drivers simply turn their Android smartphone into a contactless POS terminal with the Tsamaya Driver app. There are zero hardware setup costs, boarding is faster, and daily earnings reports are tracked automatically."
         }
     ];
 
     return (
         <div className="legae-landing">
+            <SEO
+                title="Tsamaya - Cashless Public Transit Payment Botswana | NFC Transit Pass"
+                description="Tsamaya is Botswana's leading cashless public transit payment system. Pay for combis, buses, and taxis instantly using your Tsamaya NFC Transit Pass or Mobile App. Safe for students, seamless for parents, and reliable for drivers across Gaborone, Francistown, and all of Botswana."
+                keywords="Tsamaya, Tsamaya Botswana, Tsamaya transit pass, cashless transit Botswana, NFC transit pass, public transport payment Botswana, combi payment Botswana, bus payment Botswana, taxi payment Botswana, transport payment system, digital transit card Botswana, contactless transit payment, Gaborone transport, Botswana transport card, student transit pass, school transport Botswana, mobile transit app, transit wallet Botswana, fare payment system, cashless transport Africa, Botswana NFC card, public transport technology, transit fintech Botswana, payment card Botswana, electronic transport payment, tap and pay transit, Buson, Legae, Legae app, Tsamaya payment, transport Gaborone, transport Francistown, Orange Money transport, BTC SMEGA transport, Mascom MyZaka transport, Visa Mastercard transit, school bus Botswana, combi fare Botswana, bus fare Botswana, taxi fare Botswana, transit system Africa, smart transport card"
+                url="/"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "What is Tsamaya?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Tsamaya is Botswana's leading cashless public transit payment system. It allows commuters to pay for combis, buses, and taxis instantly using an NFC Transit Pass or the Tsamaya Mobile App."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "How do I get a Tsamaya Transit Pass?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "You can sign up for a Tsamaya Transit Pass through our website or mobile app. Once registered, you can collect your NFC card from a Tsamaya partner location and start loading your transit wallet."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Where can I top up my Tsamaya wallet?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "You can top up your Tsamaya wallet instantly using Orange Money, BTC SMEGA, Mascom MyZaka, or any Visa/Mastercard debit or credit card."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Is Tsamaya safe for students?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Yes, Tsamaya is designed with student safety in mind. Parents can monitor their children's transit in real-time, set spending limits, and receive notifications. The One-Tap Kill Switch provides instant card deactivation if needed."
+                            }
+                        }
+                    ]
+                }}
+            />
             {/* Navigation */}
             <nav className="navbar">
-                <div className="logo">
+                <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
                     <img 
                         src={brandLogo} 
-                        alt="Legae Logo" 
+                        alt="Tsamaya" 
                         style={{ 
                             height: '2.5rem', 
                             width: 'auto', 
-                            objectFit: 'contain',
-                            filter: 'brightness(0) saturate(100%) invert(18%) sepia(85%) saturate(3065%) hue-rotate(345deg) brightness(83%) contrast(92%)' 
+                            objectFit: 'contain'
                         }} 
                     />
                 </div>
@@ -85,12 +202,27 @@ const LegaeLandingPage: React.FC = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M5 5l14 14M5 19l14 -14"/></g></svg>
                     </button>
                     <ul className="nav-links">
-                        <li><a href="#features" onClick={() => setIsMobileMenuOpen(false)}>Features</a></li>
-                        <li><a href="#testimonials" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</a></li>
-                        <li><a href="#downloads" onClick={() => setIsMobileMenuOpen(false)}>Downloads</a></li>
+                        <li><a href="#benefits" onClick={() => setIsMobileMenuOpen(false)}>Key Benefits</a></li>
+                        <li><a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a></li>
+                        <li><a href="#security" onClick={() => setIsMobileMenuOpen(false)}>Security</a></li>
+                        <li><a href="#top-up" onClick={() => setIsMobileMenuOpen(false)}>Top-Up Partners</a></li>
                     </ul>
                     <div className="nav-actions">
-                        <button className="get-started-btn">Get Started</button>
+                        <button 
+                            className="book-demo-btn"
+                            onClick={() => {
+                                window.open('https://cal.com/tlhalefangntshilane/tsamaya-mobile-transport-payments', '_blank', 'noopener,noreferrer');
+                                setIsMobileMenuOpen(false);
+                            }}
+                        >
+                            Book A Demo
+                        </button>
+                        <button 
+                            className={`get-started-btn ${scrolledPastHero ? 'visible' : ''}`} 
+                            onClick={() => setShowWaitlist(true)}
+                        >
+                            Get Transit Pass
+                        </button>
                     </div>
                 </div>
 
@@ -109,158 +241,540 @@ const LegaeLandingPage: React.FC = () => {
             <header className="hero">
                 <div className="hero-container">
                     <div className="hero-content-wrapper">
-                        <h1>An app that finds homes for you so you can live gracefully</h1>
+                        <h1>The Smarter, Safer Way to Move Across Botswana.</h1>
                         <p className="hero-subtitle">
-                            Find student housing, dream homes, and manage rentals effortlessly.
-                            Legae is the most reliable and discrete way to find your next home in Botswana.
+                            Cashless public transit for everyone. Pay for combis, buses, and taxis instantly using your Tsamaya NFC Transit Pass or Mobile App. Safe for students, seamless for parents, and reliable for drivers.
                         </p>
-                        <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Join Waitlist</button>
+                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
+                            <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Get Your Transit Pass</button>
+                            <button 
+                                className="try-free-btn" 
+                                onClick={() => setShowWaitlist(true)}
+                                style={{ background: 'transparent', color: '#1a1a1a', border: '1.5px solid #12B5B0' }}
+                            >
+                                Download App
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="hero-image-container">
-                        <img src={heroHandImg} alt="Legae App" className="hero-phone-img" />
+                    {/* Hero Interactive Showcase (Center Phone Mockup with Hand Blend Fade) */}
+                    <div ref={heroImageRef} className="hero-showcase-container">
+                        {/* Center: Main Phone App Mockup */}
+                        <div className={`hero-center-mockup ${heroVisible ? 'slide-in' : 'slide-out'}`}>
+                            <div className="hero-phone-wrapper">
+                                <img src={heroHandImg} alt="Tsamaya App & Transit Pass" className="hero-phone-img" />
+                                
+                                {/* Bottom Hand Ending Blend Fade */}
+                                <div className="hero-hand-bottom-cover">
+                                    <div className="hand-blend-fade"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Animated Zig-Zag Transit Road (Combi & Taxi Path) */}
+                    <div className="hero-transit-track-section">
+                        <div className="transit-track-header">
+                            <span className="transit-network-badge">
+                                <strong>BOTSWANA TRANSIT NETWORK</strong>
+                            </span>
+                            <span className="transit-track-subtext">Tap & pay across Combis, Taxis & Buses</span>
+                        </div>
+
+                        <div className="transit-road-wrapper">
+                            <svg 
+                                className="transit-road-svg" 
+                                viewBox="0 -30 1400 280" 
+                                fill="none" 
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <defs>
+                                    {/* Road Asphalt Gradient */}
+                                    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#1E293B" />
+                                        <stop offset="35%" stopColor="#0F172A" />
+                                        <stop offset="70%" stopColor="#1E293B" />
+                                        <stop offset="100%" stopColor="#0F172A" />
+                                    </linearGradient>
+
+                                    {/* Road Glow / Border Gradient */}
+                                    <linearGradient id="roadBorderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#12B5B0" stopOpacity="0.4" />
+                                        <stop offset="50%" stopColor="#38BDF8" stopOpacity="0.8" />
+                                        <stop offset="100%" stopColor="#12B5B0" stopOpacity="0.4" />
+                                    </linearGradient>
+
+                                    {/* Vehicle Headlight Glow */}
+                                    <linearGradient id="headlightBeam" x1="0%" y1="50%" x2="100%" y2="50%">
+                                        <stop offset="0%" stopColor="#FEF08A" stopOpacity="0.8" />
+                                        <stop offset="100%" stopColor="#FEF08A" stopOpacity="0" />
+                                    </linearGradient>
+
+                                    {/* Drop Shadow for Vehicles */}
+                                    <filter id="vehicleShadow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000" floodOpacity="0.35" />
+                                    </filter>
+                                </defs>
+
+                                {/* Background Road Border / Curb */}
+                                <path
+                                    id="roadBaseCurve"
+                                    d="M -60,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                    stroke="url(#roadBorderGrad)"
+                                    strokeWidth="56"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+
+                                {/* Main Asphalt Surface */}
+                                <path
+                                    d="M -60,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                    stroke="url(#roadGrad)"
+                                    strokeWidth="48"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+
+                                {/* Road Side Guide Lines */}
+                                <path
+                                    d="M -60,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                    stroke="#334155"
+                                    strokeWidth="42"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M -60,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                    stroke="#1E293B"
+                                    strokeWidth="38"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+
+                                {/* Dashed Center Lane Line */}
+                                <path
+                                    className="road-dashed-divider"
+                                    d="M -60,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                    stroke="#FBBF24"
+                                    strokeWidth="3"
+                                    strokeDasharray="14 16"
+                                    strokeLinecap="round"
+                                    fill="none"
+                                />
+
+
+
+                                {/* ======================================================== */}
+                                {/* VEHICLE 1: COMBI (Minibus / Quantum) Moving Left to Right */}
+                                {/* ======================================================== */}
+                                <g className="animated-vehicle-group combi-group" filter="url(#vehicleShadow)">
+                                    <animateMotion
+                                        path="M -80,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                        dur="11s"
+                                        repeatCount="indefinite"
+                                        rotate="auto"
+                                    />
+                                    
+                                    {/* Headlight beam */}
+                                    <polygon points="34,-6 62,-14 62,14 34,6" fill="url(#headlightBeam)" />
+
+                                    {/* Combi Body (Facing Right) */}
+                                    <g transform="translate(0, 0)">
+                                        {/* Main Chassis */}
+                                        <rect x="-34" y="-14" width="68" height="28" rx="7" fill="#FFFFFF" stroke="#0E9490" strokeWidth="1.5" />
+                                        
+                                        {/* Tsamaya Turquoise Side Stripe */}
+                                        <rect x="-34" y="2" width="68" height="6" fill="#12B5B0" />
+                                        
+                                        {/* Front Windshield & Windows */}
+                                        <path d="M 18,-11 L 30,-11 C 32,-11 33,-9 33,-7 L 33,0 L 18,0 Z" fill="#0284C7" opacity="0.85" />
+                                        <rect x="4" y="-11" width="11" height="11" rx="2" fill="#0284C7" opacity="0.85" />
+                                        <rect x="-10" y="-11" width="11" height="11" rx="2" fill="#0284C7" opacity="0.85" />
+                                        <rect x="-24" y="-11" width="11" height="11" rx="2" fill="#0284C7" opacity="0.85" />
+                                        <rect x="-31" y="-11" width="4" height="11" rx="1" fill="#0284C7" opacity="0.85" />
+
+                                        {/* Headlights & Taillights */}
+                                        <rect x="32" y="-10" width="2.5" height="5" rx="1" fill="#FEF08A" />
+                                        <rect x="32" y="5" width="2.5" height="5" rx="1" fill="#FEF08A" />
+                                        <rect x="-34" y="-10" width="2" height="5" rx="1" fill="#EF4444" />
+                                        <rect x="-34" y="5" width="2" height="5" rx="1" fill="#EF4444" />
+
+                                        {/* Wheels */}
+                                        <rect x="-24" y="-17" width="10" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="-24" y="13" width="10" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="16" y="-17" width="10" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="16" y="13" width="10" height="4" rx="2" fill="#0F172A" />
+
+                                        {/* Roof Tag / NFC Badge */}
+                                        <g transform="translate(0, -22)">
+                                            <rect x="-22" y="-7" width="44" height="14" rx="7" fill="#12B5B0" stroke="#FFFFFF" strokeWidth="1.5" />
+                                            <text x="0" y="3" fill="#FFFFFF" fontSize="8" fontWeight="800" textAnchor="middle">COMBI</text>
+                                        </g>
+                                    </g>
+                                </g>
+
+                                {/* ======================================================== */}
+                                {/* VEHICLE 2: TAXI (Cab / Sedan) Moving Left to Right       */}
+                                {/* ======================================================== */}
+                                <g className="animated-vehicle-group taxi-group" filter="url(#vehicleShadow)">
+                                    <animateMotion
+                                        path="M -80,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                        dur="14s"
+                                        begin="-4.5s"
+                                        repeatCount="indefinite"
+                                        rotate="auto"
+                                    />
+                                    
+                                    {/* Headlight beam */}
+                                    <polygon points="26,-5 52,-12 52,12 26,5" fill="url(#headlightBeam)" />
+
+                                    {/* Taxi Body (Facing Right) */}
+                                    <g transform="translate(0, 0)">
+                                        {/* Main Chassis */}
+                                        <rect x="-26" y="-12" width="52" height="24" rx="6" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
+
+                                        {/* Roof / Cabin */}
+                                        <rect x="-12" y="-10" width="24" height="20" rx="3" fill="#FFFFFF" />
+                                        
+                                        {/* Windshields & Windows */}
+                                        <path d="M 6,-9 L 14,-9 C 16,-9 17,-8 17,-6 L 17,6 C 17,8 16,9 14,9 L 6,9 Z" fill="#0284C7" opacity="0.8" />
+                                        <rect x="-4" y="-8" width="8" height="16" rx="1" fill="#0284C7" opacity="0.75" />
+                                        <path d="M -6,-9 L -14,-9 C -16,-9 -17,-8 -17,-6 L -17,6 C -17,8 -16,9 -14,9 L -6,9 Z" fill="#0284C7" opacity="0.8" />
+
+                                        {/* Headlights & Taillights */}
+                                        <rect x="24" y="-9" width="2.5" height="4" rx="1" fill="#FEF08A" />
+                                        <rect x="24" y="5" width="2.5" height="4" rx="1" fill="#FEF08A" />
+                                        <rect x="-26" y="-9" width="2" height="4" rx="1" fill="#EF4444" />
+                                        <rect x="-26" y="5" width="2" height="4" rx="1" fill="#EF4444" />
+
+                                        {/* Wheels */}
+                                        <rect x="-18" y="-15" width="8" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="-18" y="11" width="8" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="12" y="-15" width="8" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="12" y="11" width="8" height="4" rx="2" fill="#0F172A" />
+
+                                        {/* Roof Taxi Light / Badge */}
+                                        <g transform="translate(0, -18)">
+                                            <rect x="-18" y="-7" width="36" height="14" rx="7" fill="#0F172A" stroke="#FBBF24" strokeWidth="1.5" />
+                                            <text x="0" y="3" fill="#FBBF24" fontSize="8" fontWeight="800" textAnchor="middle">TAXI</text>
+                                        </g>
+                                    </g>
+                                </g>
+
+                                {/* ======================================================== */}
+                                {/* VEHICLE 3: TRANSIT BUS (Long Coach) Moving Left to Right */}
+                                {/* ======================================================== */}
+                                <g className="animated-vehicle-group bus-group" filter="url(#vehicleShadow)">
+                                    <animateMotion
+                                        path="M -80,115 C 160,205 320,35 540,115 C 760,195 930,25 1150,115 C 1280,175 1380,75 1480,115"
+                                        dur="17s"
+                                        begin="-9s"
+                                        repeatCount="indefinite"
+                                        rotate="auto"
+                                    />
+                                    
+                                    {/* Headlight beam */}
+                                    <polygon points="42,-7 72,-16 72,16 42,7" fill="url(#headlightBeam)" />
+
+                                    {/* Bus Body (Facing Right) */}
+                                    <g transform="translate(0, 0)">
+                                        {/* Bus Chassis */}
+                                        <rect x="-42" y="-15" width="84" height="30" rx="8" fill="#1E293B" stroke="#12B5B0" strokeWidth="1.8" />
+
+                                        {/* Roof Strip */}
+                                        <rect x="-38" y="-13" width="76" height="26" rx="5" fill="#334155" />
+                                        
+                                        {/* Windows Row */}
+                                        <path d="M 24,-11 L 38,-11 C 40,-11 41,-9 41,-6 L 41,6 C 41,9 40,11 38,11 L 24,11 Z" fill="#38BDF8" opacity="0.9" />
+                                        <rect x="9" y="-11" width="12" height="22" rx="2" fill="#38BDF8" opacity="0.85" />
+                                        <rect x="-7" y="-11" width="12" height="22" rx="2" fill="#38BDF8" opacity="0.85" />
+                                        <rect x="-23" y="-11" width="12" height="22" rx="2" fill="#38BDF8" opacity="0.85" />
+                                        <rect x="-37" y="-11" width="10" height="22" rx="2" fill="#38BDF8" opacity="0.85" />
+
+                                        {/* Front and Back Lights */}
+                                        <rect x="40" y="-12" width="3" height="6" rx="1" fill="#FEF08A" />
+                                        <rect x="40" y="6" width="3" height="6" rx="1" fill="#FEF08A" />
+                                        <rect x="-42" y="-12" width="2.5" height="6" rx="1" fill="#EF4444" />
+                                        <rect x="-42" y="6" width="2.5" height="6" rx="1" fill="#EF4444" />
+
+                                        {/* 3 Axles / Wheels */}
+                                        <rect x="-34" y="-18" width="9" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="-34" y="14" width="9" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="-20" y="-18" width="9" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="-20" y="14" width="9" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="24" y="-18" width="9" height="4" rx="2" fill="#0F172A" />
+                                        <rect x="24" y="14" width="9" height="4" rx="2" fill="#0F172A" />
+
+                                        {/* Roof Tag / Bus Label */}
+                                        <g transform="translate(0, -23)">
+                                            <rect x="-18" y="-7" width="36" height="14" rx="7" fill="#0E9490" stroke="#FFFFFF" strokeWidth="1.5" />
+                                            <text x="0" y="3" fill="#FFFFFF" fontSize="8" fontWeight="800" textAnchor="middle">BUS</text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </header>
 
-            {/* Features Section */}
-            <section className="features" id="features">
+            {/* Key Benefits (Value Proposition Cards) */}
+            <section className="features" id="benefits">
                 <div className="section-header">
                     <div>
-                        <h2>Designed to help you live gracefully. In any situation.</h2>
+                        <h2>Key Benefits for Commuters, Parents & Drivers</h2>
                     </div>
                     <div>
-                        <p>We've built Legae to be the most comprehensive housing app in the region, focusing on ease of use and reliability.</p>
+                        <p>A unified cashless transit platform designed to eliminate cash hassles, protect your money, and accelerate daily travel across Botswana.</p>
                     </div>
                 </div>
 
-                <div className="features-grid">
-                    <div className="feature-card">
-                        <img src={featureImg1} alt="Create Scenarios" />
-                        <h3>Find Your Dream Home</h3>
-                        <p>Browse through thousands of verified listings with detailed information and high-quality photos.</p>
+                {/* Row 1: Image left, cards right */}
+                <div className="features-split-row">
+                    <div className="features-split-image">
+                        <img
+                            src="/assets/Green White and Yellow Simple Farming Pitch Deck Presentation (2) (1).png"
+                            alt="Tsamaya commuters and students"
+                        />
                     </div>
-                    <div className="feature-card">
-                        <img src={featureImg2} alt="Real Calls" />
-                        <h3>Student Accomodation</h3>
-                        <p>Specifically curated listings for students, near major campuses with all the amenities you need.</p>
-                    </div>
-                    <div className="feature-card">
-                        <img src={featureImg3} alt="Faking Chat" />
-                        <h3>Direct Management</h3>
-                        <p>Owners and agents can manage their properties, chat with potential tenants, and track payments.</p>
-                    </div>
-                    <div className="feature-card">
-                        <div className="feature-icon-container">
-                            <div className="feature-icon-box">
-                                <div className="feature-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="#A31D1D" d="M4 19v-2h2v-7q0-2.075 1.25-3.687T10.5 4.2V2h3v2.2q2 .5 3.25 2.113T18 10v7h2v2zm8 3q-.825 0-1.412-.587T10 20h4q0 .825-.587 1.413T12 22M2 10q0-2.5 1.113-4.587T6.1 1.95l1.175 1.6q-1.5 1.1-2.387 2.775T4 10zm18 0q0-2-.888-3.675T16.726 3.55l1.175-1.6q1.875 1.375 2.988 3.463T22 10z" /></svg>
-                                </div>
-                                <h4>Instant Notifications</h4>
-                                <p>Get notified the moment a property matching your criteria is listed.</p>
-                            </div>
+                    <div className="features-split-cards">
+                        <div className="feature-card">
+                            <h3>
+                                <span className="feature-card-heading-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
+                                        <path d="M0 0h15v15H0z" fill="none" />
+                                        <path fill="currentColor" d="M4 3c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v8c0 1-1 1-1 1v1c0 .55-.45 1-1 1s-1-.45-1-1v-1H7v1c0 .55-.45 1-1 1s-1-.45-1-1v-1c-1 0-1-1-1-1zm1.5 1c-.28 0-.5.22-.5.5v3c0 .28.22.5.5.5h8c.28 0 .5-.22.5-.5v-3c0-.28-.22-.5-.5-.5zM6 9c-.55 0-1 .45-1 1s.45 1 1 1s1-.45 1-1s-.45-1-1-1m7 0c-.55 0-1 .45-1 1s.45 1 1 1s1-.45 1-1s-.45-1-1-1M6 2.5c0 .28.22.5.5.5h6c.28 0 .5-.22.5-.5s-.22-.5-.5-.5h-6c-.28 0-.5.22-.5.5m-4.5 8.37V12l-.03.16l-.5 1.5c-.08.26-.37.4-.63.31a.49.49 0 0 1-.31-.63l.47-1.42v-1.05c-.3-.18-.5-.5-.5-.87V8.25c0-.55.45-1 1-1q.315 0 .57.18l.84.45l.74-.73c.19-.2.51-.2.7 0c.2.19.2.51 0 .7l-1 1c-.15.16-.39.2-.59.09L2 8.8v1.14l1.22.61c.17.09.28.26.28.45v1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-1.19l-.95-.48c-.02.02-.03.03-.05.04M1 7c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1" />
+                                    </svg>
+                                </span>
+                                For Commuters & Students
+                            </h3>
+                            <p><strong>Tap & Go Simplicity:</strong> No more carrying loose cash or searching for change. Just tap your Tsamaya Pass or phone to pay your fare in under a second.</p>
                         </div>
-                        <h3>Smart Alerts</h3>
-                        <p>Stay ahead of the market with real-time alerts for the newest and hottest listings.</p>
+                        <div className="feature-card">
+                            <h3>Zero Balance Risk</h3>
+                            <p>Stolen or misplaced card? Lock it instantly on the web or mobile app. Your balance remains 100% safe in your cloud wallet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Row 2: Parents & Guardians (Cards Left, Image Right) */}
+                <div className="features-split-row">
+                    <div className="features-split-cards">
+                        <div className="feature-card">
+                            <h3>
+                                <span className="feature-card-heading-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                                        <path d="M0 0h32v32H0z" fill="none" />
+                                        <path fill="currentColor" d="M20 30h-3a2 2 0 0 1-2-2v-5h2v5h3v-5h2v-4a1 1 0 0 0-1-1h-8.72l-2-6H4a1 1 0 0 0-1 1v6h2v9h4v-7h2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1-2-2v-6a3.003 3.003 0 0 1 3-3h6.28a2 2 0 0 1 1.897 1.367L13.72 16H21a3.003 3.003 0 0 1 3 3v4a2 2 0 0 1-2 2v3a2 2 0 0 1-2 2m8 0h-2V19h3v-6a1 1 0 0 0-1-1h-4v-2h4a3.003 3.003 0 0 1 3 3v6a2 2 0 0 1-2 2h-1ZM7 9a4 4 0 1 1 4-4a4.005 4.005 0 0 1-4 4m0-6a2 2 0 1 0 2 2a2 2 0 0 0-2-2m18 6a4 4 0 1 1 4-4a4.005 4.005 0 0 1-4 4m0-6a2 2 0 1 0 2 2a2 2 0 0 0-2-2" />
+                                        <path fill="currentColor" d="M18.5 15a3.5 3.5 0 1 1 3.5-3.5a3.504 3.504 0 0 1-3.5 3.5m0-5a1.5 1.5 0 1 0 1.5 1.5a1.5 1.5 0 0 0-1.5-1.5" />
+                                    </svg>
+                                </span>
+                                For Parents & Guardians
+                            </h3>
+                            <p><strong>Total Spending Control:</strong> Fund your child's transport allowance directly from your phone via Orange Money, SMEGA, MyZaka, or bank card with real-time notification alerts.</p>
+                        </div>
+                        <div className="feature-card">
+                            <h3>Real-Time Safety & Peace of Mind</h3>
+                            <p>Know that travel funds cannot be lost or misused for anything other than transit fares, giving your family complete security.</p>
+                        </div>
+                    </div>
+                    <div className="features-split-image features-split-image-fade-right">
+                        <img
+                            src="/assets/Green White and Yellow Simple Farming Pitch Deck Presentation (8) (1).png"
+                            alt="Tsamaya parents and guardians"
+                        />
+                    </div>
+                </div>
+
+                {/* Row 3: Drivers & Operators (Image Left, Cards Right) */}
+                <div className="features-split-row features-split-row-drivers">
+                    <div className="features-split-image features-split-image-large">
+                        <img
+                            src="/assets/Green White and Yellow Simple Farming Pitch Deck Presentation (9) (1).png"
+                            alt="Tsamaya drivers turning phone into POS"
+                        />
+                    </div>
+                    <div className="features-split-cards">
+                        <div className="feature-card">
+                            <h3>
+                                <span className="feature-card-heading-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1.42em" height="1em" viewBox="0 0 34 24">
+                                        <path d="M0 0h34v24H0z" fill="none" />
+                                        <path fill="currentColor" d="M25.678 24v-3.298H7.859V24H1.553v-8.728a6.07 6.07 0 0 1 1.863-4.238l.002-.002l-1.823-.3A1.904 1.904 0 0 1 .001 8.857a1.9 1.9 0 0 1 2.218-1.874l-.011-.002l3.127.51q.075.015.137.036l-.007-.002l2.014-5.126h6.434l.48-2.4h6l.48 2.4h6.062l2.015 5.13a1 1 0 0 1 .12-.033l.008-.001l3.13-.51a1.906 1.906 0 0 1 2.18 1.559l.002.011a1.904 1.904 0 0 1-1.555 2.179l-.011.002l-2.532.415a6.08 6.08 0 0 1 1.739 4.115v3.714q0 .194-.043.374l.002-.011v4.655zm-3.884-7.617a1.27 1.27 0 0 0 1.266 1.266h5.087a1.266 1.266 0 0 0 0-2.532h-5.085a1.27 1.27 0 0 0-1.266 1.266zm-17.745 0a1.27 1.27 0 0 0 1.266 1.266h5.087a1.266 1.266 0 0 0 0-2.532H5.316a1.27 1.27 0 0 0-1.266 1.265zm2.973-6.608h20.264c.034 0 .067.006.099.006l-2-5.106H9.031z" />
+                                    </svg>
+                                </span>
+                                For Drivers & Operators
+                            </h3>
+                            <p><strong>Turn Phone into POS:</strong> Accept cashless fares using your Android smartphone with zero hardware costs. Faster boarding, reduced queue delays, and guaranteed daily earnings tracking directly on your driver dashboard.</p>
+                        </div>
+                        <div className="feature-card">
+                            <h3>Instant Daily Earnings & Shift Reports</h3>
+                            <p>Eliminate cash leakage and manual reconciliation. Receive automated deposits straight to your mobile wallet or bank account.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* How It Works Section */}
-            <section className="how-it-works">
+            <section className="how-it-works" id="how-it-works">
                 <div className="section-header">
-                    <h2>How it works</h2>
+                    <h2>How It Works</h2>
                 </div>
 
                 <div className="steps-list">
                     <div className="steps-content">
                         <div className="step-item">
                             <div className="step-number">01</div>
-                            <h3>Download app</h3>
-                            <p>Available on iOS and Android.</p>
+                            <h3>Fund Your Wallet</h3>
+                            <p>Top up your Tsamaya account using Orange Money, SMEGA, MyZaka, or any Visa/Mastercard debit or credit card.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">02</div>
-                            <h3>Set preferences</h3>
-                            <p>Tell us your location and budget.</p>
+                            <h3>Tap or Scan to Pay</h3>
+                            <p>Tap your physical Tsamaya Transit Pass or open your app to present a digital QR code to the driver.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">03</div>
-                            <h3>Find a home</h3>
-                            <p>Browse through verified listings.</p>
+                            <h3>Travel Securely</h3>
+                            <p>Enjoy instant fare confirmation, clear digital receipts, and real-time trip logging for complete safety.</p>
                         </div>
                         <div className="step-item">
                             <div className="step-number">04</div>
-                            <h3>Secure deal</h3>
-                            <p>Chat and secure with a few taps.</p>
+                            <h3>Manage & Track</h3>
+                            <p>Monitor your daily commute history, view detailed receipts, and manage all your family cards in one place.</p>
                         </div>
                     </div>
                     <div className="steps-image">
-                        <img src={featureImg2} alt="How it works" style={{ width: '100%', borderRadius: '24px' }} />
+                        <img
+                            src="/assets/Green White and Yellow Simple Farming Pitch Deck Presentation (11) (1).png"
+                            alt="How Tsamaya works"
+                            className={`steps-slide ${activeSlide === 0 ? 'active' : ''}`}
+                        />
+                        <img
+                            src="/assets/NFCCARDS/Gemini_Generated_Image_yioljnyioljnyiol.png"
+                            alt="NFC Card 1"
+                            className={`steps-slide steps-slide-blur ${activeSlide === 1 ? 'active' : ''}`}
+                        />
+                        <img
+                            src="/assets/NFCCARDS/Gemini_Generated_Image_2igxk72igxk72igx.png"
+                            alt="NFC Card 2"
+                            className={`steps-slide steps-slide-blur ${activeSlide === 2 ? 'active' : ''}`}
+                        />
+                        <img
+                            src="/assets/NFCCARDS/Gemini_Generated_Image_e2cevge2cevge2ce.png"
+                            alt="NFC Card 3"
+                            className={`steps-slide steps-slide-blur ${activeSlide === 3 ? 'active' : ''}`}
+                        />
+                        <img
+                            src="/assets/NFCCARDS/Gemini_Generated_Image_pukrbspukrbspukr.png"
+                            alt="NFC Card 4"
+                            className={`steps-slide steps-slide-blur ${activeSlide === 4 ? 'active' : ''}`}
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Scenario Highlights */}
-            <section className="scenarios">
+            {/* Bank-Grade Security & Anti-Fraud Features */}
+            <section className="scenarios" id="security">
                 <div className="scenarios-content">
-                    <h2>Scenario Highlights</h2>
-                    <p>Focus on the moments that matter most with our selection of curated housing categories.</p>
+                    <h2>Bank-Grade Security & Anti-Fraud Features</h2>
+                    <p className="scenarios-subtitle">Designed with a cloud-first security architecture to guarantee safety for every thebe and passenger.</p>
                     <div className="scenario-list">
                         <div className="scenario-item">
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 8 8"><path fill="#A31D1D" d="M0 3h1v4m1-1V4h4v2M0 3l4-2l4 2l-4 2" /></svg>
-                                </span>
-                                Student Accommodation in Gabs
-                            </span>
-                            <span>→</span>
+                            <div className="scenario-item-main">
+                                <div className="scenario-text-wrap">
+                                    <h4>Cloud-First Protection</h4>
+                                    <p>Money never lives on physical cards. Secured inside encrypted cloud wallets.</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="scenario-item">
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 15 15"><path fill="#A31D1D" d="M6.176 1.176a.25.25 0 0 0-.352 0l-4.4 4.4A.25.25 0 0 0 1.6 6H3v6.751a.25.25 0 0 0 .249.249h3.5A.25.25 0 0 0 7 12.753v-7.43c0-.066.026-.13.073-.176L8.5 3.5zM6 11H5v-1h1zm0-2H5V8h1zm0-3v1H5V6zm6.75-3h-.5a.25.25 0 0 0-.25.25V5l-1.324-1.824a.25.25 0 0 0-.352 0L8.056 5.932A.25.25 0 0 0 8 6.088v6.66a.25.25 0 0 0 .246.252h1.5a.253.253 0 0 0 .254-.252V11h1v1.747a.253.253 0 0 0 .253.253h1.5a.25.25 0 0 0 .247-.249V3.25a.25.25 0 0 0-.25-.25M10 8H9V7h1zm2 0h-1V7h1zm-2 2H9V9h1zm2 0h-1V9h1z" /></svg>
-                                </span>
-                                Luxury Villas in Phakalane
-                            </span>
-                            <span>→</span>
+                            <div className="scenario-item-main">
+                                <div className="scenario-text-wrap">
+                                    <h4>One-Tap Kill Switch</h4>
+                                    <p>Lock lost cards instantly on the web portal or mobile app with a single click.</p>
+                                </div>
+                            </div>
                         </div>
                         <div className="scenario-item">
-                            <span style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                <span style={{ background: '#FDF2F2', padding: '10px', borderRadius: '8px', display: 'flex' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#A31D1D" d="M16.923 15.02q-.154-.59-.6-1.1q-.446-.512-1.135-.766l-6.992-2.62q-.136-.05-.27-.061t-.307-.012H7v-2.34q0-.385.177-.742q.177-.358.5-.575l4.885-3.479q.224-.159.458-.229q.234-.069.478-.069t.49.07t.45.228l4.885 3.479q.323.217.5.575T20 8.12v6.898zM14.5 8.441q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m-2 0q.162 0 .283-.12q.12-.122.12-.284t-.12-.282q-.121-.122-.283-.122t-.283.122q-.12.121-.12.282t.12.283q.121.121.283.121m1.01 11.23q.198.055.481.048q.284-.006.48-.06L21 19.5q0-.696-.475-1.136q-.475-.441-1.179-.441h-5.158q-.498 0-1.02-.06q-.524-.061-.977-.22l-1.572-.526q-.161-.056-.236-.211t-.025-.315q.05-.139.202-.21q.152-.072.313-.016l1.433.502q.408.146.893.217q.486.07 1.053.07h1.202q.283 0 .453-.162t.17-.456q0-.388-.309-.809q-.308-.421-.716-.565l-6.021-2.21q-.137-.042-.273-.074q-.137-.032-.292-.032H6.385v6.737zM2.384 19.922q0 .46.308.768q.309.309.769.309h.846q.46 0 .768-.309q.309-.308.309-.768v-6q0-.46-.309-.768q-.309-.309-.768-.309h-.846q-.46 0-.769.309q-.308.309-.308.768z" /></svg>
-                                </span>
-                                Affordable Rentals in Tlokweng
-                            </span>
-                            <span>→</span>
+                            <div className="scenario-item-main">
+                                <div className="scenario-text-wrap">
+                                    <h4>Role-Enforced Terminals</h4>
+                                    <p>Only verified, licensed transit operators can process payments.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="scenario-item">
+                            <div className="scenario-item-main">
+                                <div className="scenario-text-wrap">
+                                    <h4>Pre-Set Route Rates</h4>
+                                    <p>Fixed fare matrices prevent manual overcharging or accidental multi-tapping.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="scenarios-image">
-                    <img src={featureImg1} alt="Scenarios" />
+                    <img
+                        src="/assets/Green White and Yellow Simple Farming Pitch Deck Presentation (9) (1).png"
+                        alt="Security Architecture"
+                    />
                 </div>
             </section>
 
             {/* Testimonials */}
             <section className="testimonials" id="testimonials">
                 <div className="testimonial-card">
-                    <div className="testimonial-user-icon" style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center' }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 640 640"><path fill="#A31D1D" d="M341.8 72.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S82.8 336 96 336h16v176c0 35.3 28.7 64 64 64h288c35.3 0 64-28.7 64-64V336h16c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1zM264 320c0-30.9 25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56s-56-25.1-56-56m-56 176c0-44.2 35.8-80 80-80h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H224c-8.8 0-16-7.2-16-16" /></svg>
+                    <div className="testimonial-user-icon" style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', color: '#12B5B0' }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <g fill="none">
+                                <path fill="currentColor" d="m9.158 19.54l2.118-4.502c.231-.49.347-.736.505-.813a.5.5 0 0 1 .438 0c.158.077.274.322.505.813l2.118 4.502c.347.737.52 1.106.455 1.298a.5.5 0 0 1-.368.326c-.198.043-.543-.173-1.235-.605l-1.27-.794c-.154-.096-.23-.144-.313-.163a.5.5 0 0 0-.222 0c-.082.019-.16.067-.313.163l-1.27.794c-.692.432-1.037.648-1.235.605a.5.5 0 0 1-.368-.326c-.066-.192.108-.56.455-1.298" />
+                                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M12 11V9" />
+                                <path fill="currentColor" d="M17.8 3H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C3 4.52 3 5.08 3 6.2v8.258c0 .504 0 .756.045.964a2 2 0 0 0 1.533 1.533c.208.045.46.045.964.045c.093 0 .14 0 .182-.007a.5.5 0 0 0 .357-.257a1 1 0 0 0 .064-.17l3.49-10.472c.131-.393.197-.59.319-.736a1 1 0 0 1 .4-.289c.177-.069.385-.069.8-.069h1.693c.415 0 .622 0 .798.07a1 1 0 0 1 .401.288c.122.146.188.343.319.736l3.49 10.471c.03.09.044.133.064.17a.5.5 0 0 0 .357.258c.042.007.089.007.182.007c.504 0 .756 0 .965-.045a2 2 0 0 0 1.532-1.532c.045-.21.045-.461.045-.965V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C19.48 3 18.92 3 17.8 3" />
+                            </g>
+                        </svg>
                     </div>
                     <p className="testimonial-text">
-                        "Legae made finding my student apartment so much easier. I could filter by my budget and proximity to UB, and the direct chat with the landlord was a game changer."
+                        "Tsamaya has completely transformed our morning commute. No more scrambling for exact change in combis, and as a parent, I can top up my daughter's transport allowance instantly from my phone."
                     </p>
                     <div className="testimonial-author">
-                        <strong>Bonnie Odireleng</strong>
-                        <p>University of Botswana Student</p>
+                        <strong>Amogelang Tshukudu</strong>
+                        <span>Parent & Daily Commuter, Gaborone</span>
                     </div>
+                </div>
+            </section>
+
+            {/* Instant Top-Up Partners */}
+            <section className="early-access" id="top-up">
+                <h2>Instant Top-Up Partners</h2>
+                <p>Fund your account anywhere, anytime through local mobile networks and trusted payment gateways:</p>
+                <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '800px', margin: '0 auto 2rem auto' }}>
+                    <span style={{ background: '#fff', padding: '10px 20px', borderRadius: '30px', border: '1px solid #D1F2F0', fontWeight: '600', color: '#1a1a1a' }}>
+                        Orange Money <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: 'normal' }}>(USSD Prompt Push)</span>
+                    </span>
+                    <span style={{ background: '#fff', padding: '10px 20px', borderRadius: '30px', border: '1px solid #D1F2F0', fontWeight: '600', color: '#1a1a1a' }}>
+                        BTC SMEGA <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: 'normal' }}>(Direct API Top-Up)</span>
+                    </span>
+                    <span style={{ background: '#fff', padding: '10px 20px', borderRadius: '30px', border: '1px solid #D1F2F0', fontWeight: '600', color: '#1a1a1a' }}>
+                        Mascom MyZaka <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: 'normal' }}>(Instant Merchant Pay)</span>
+                    </span>
+                    <span style={{ background: '#fff', padding: '10px 20px', borderRadius: '30px', border: '1px solid #D1F2F0', fontWeight: '600', color: '#1a1a1a' }}>
+                        Visa & Mastercard <span style={{ color: '#666', fontSize: '0.85rem', fontWeight: 'normal' }}>(Cybersource Secure)</span>
+                    </span>
+                </div>
+                <button className="try-free-btn" style={{ background: '#12B5B0', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Get Your Transit Pass</button>
+                <div className="early-access-images">
+                    <img src="/assets/FRONT (2) (1).png" alt="Tsamaya Transit Pass Front" />
+                    <img src="/assets/FRONT (3) (1).png" alt="Tsamaya Transit Pass Front" />
+                    <img src="/assets/FRONT (2) (1).png" alt="Tsamaya Transit Pass Front" />
                 </div>
             </section>
 
             {/* FAQ Section */}
             <section className="faq">
                 <div className="faq-title">
-                    <h2>Frequently asked questions</h2>
+                    <h2>Frequently Asked Questions</h2>
                 </div>
                 <div className="faq-list">
                     {faqData.map((faq, index) => (
@@ -281,27 +795,23 @@ const LegaeLandingPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Early Access */}
-            <section className="early-access">
-                <h2>Get early access</h2>
-                <p>Be the first to know when we launch new features and exclusive listings.</p>
-                <button className="try-free-btn" style={{ background: '#A31D1D', marginBottom: '2rem' }} onClick={() => setShowWaitlist(true)}>Join Waitlist</button>
-                <div className="early-access-images">
-                    <img src={featureImg1} alt="User 1" />
-                    <img src={featureImg2} alt="User 2" />
-                    <img src={featureImg3} alt="User 3" />
-                </div>
-            </section>
-
             {/* Footer */}
             <footer className="footer">
                 <div className="footer-grid">
                     <div className="footer-info">
-                        <div className="footer-logo-large" style={{ textAlign: 'left', marginBottom: '1.5rem', display: 'block' }}>
-                            Legae
+                        <div style={{ textAlign: 'left', marginBottom: '1.5rem', display: 'block' }}>
+                            <img 
+                                src={brandLogo} 
+                                alt="Tsamaya" 
+                                style={{ 
+                                    height: '2.5rem', 
+                                    width: 'auto', 
+                                    objectFit: 'contain'
+                                }} 
+                            />
                         </div>
                         <p style={{ color: '#666', maxWidth: '300px', marginBottom: '1.5rem' }}>
-                            Making home finding easy and accessible for everyone in Botswana. Unlocking your future, one home at a time.
+                            Cashless transit for combis, buses, and taxis across Botswana.
                         </p>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             <div style={{ display: 'flex', gap: '12px', color: 'var(--legae-text)' }}>
@@ -315,30 +825,40 @@ const LegaeLandingPage: React.FC = () => {
                                 </svg>
                             </div>
                             <p style={{ color: '#666', fontSize: '0.85rem', margin: 0 }}>
-                                Will be available soon on Play Store and App Store.
+                                Available on Google Play & App Store soon.
                             </p>
                         </div>
                     </div>
                     <div className="footer-links">
-                        <h4>Platform</h4>
+                        <h4>Commuters</h4>
                         <ul>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Downloads</a></li>
+                            <li><a href="#benefits" onClick={() => setShowWaitlist(true)}>Order a Pass</a></li>
+                            <li><a href="#top-up" onClick={() => setShowWaitlist(true)}>Top Up Wallet</a></li>
+                            <li><a href="#security" onClick={() => setShowWaitlist(true)}>Manage Linked Cards</a></li>
+                            <li><a href="#how-it-works" onClick={() => setShowWaitlist(true)}>Dispute Fare</a></li>
+                        </ul>
+                    </div>
+                    <div className="footer-links">
+                        <h4>Operators & Drivers</h4>
+                        <ul>
+                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWaitlist(true); }}>Driver Registration</a></li>
+                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWaitlist(true); }}>Fleet Dashboard Login</a></li>
+                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWaitlist(true); }}>Settlement Reports</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowPrivacy(true); }}>Privacy Policy</a></li>
+                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWaitlist(true); }}>About Tsamaya</a></li>
+                            <li><a href="/terms" onClick={(e) => { e.preventDefault(); navigate('/terms'); }}>Terms of Service</a></li>
+                            <li><a href="/privacy" onClick={(e) => { e.preventDefault(); navigate('/privacy'); }}>Privacy Policy</a></li>
+                            <li><a href="#" onClick={(e) => { e.preventDefault(); setShowWaitlist(true); }}>Support Contact</a></li>
                         </ul>
                     </div>
                 </div>
-                <div className="footer-bottom" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #FFE4E4', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem', color: '#666' }}>
-                    <p>&copy; {new Date().getFullYear()} Legae. All rights reserved.</p>
-                    <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>
+                <div className="footer-bottom" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid #D1F2F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.9rem', color: '#666' }}>
+                    <p>&copy; {new Date().getFullYear()} tsamaya.co.bw. All rights reserved.</p>
+                    <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: '#12B5B0', fontWeight: '700', textDecoration: 'none' }}>DevGen Technologies</a></p>
                 </div>
             </footer>
 
@@ -347,21 +867,20 @@ const LegaeLandingPage: React.FC = () => {
                 <div className="popup-overlay">
                     <div className="waitlist-popup">
                         <button className="close-popup" onClick={() => setShowWaitlist(false)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5l14 14M5 19l14 -14"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l14 0M5 19l14 0;M5 5l14 14M5 19l14 -14" /></path><path d="M12 12h0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12h14;M12 12h0" /><set fill="freeze" attributeName="opacity" begin="0.4s" to="0" /></path></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M5 5l14 14M5 19l14 -14"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l14 0M5 19l14 0;M5 5l14 14M5 19l14 -14" /></path><path d="M12 12h0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12h14;M12 12h0" /><set fill="freeze" attributeName="opacity" begin="0.4s" to="0" /></path></g></svg>
                         </button>
                         <div className="popup-content">
                             <div className="popup-left">
-                                <img src={heroHandImg} alt="Legae App" className="popup-app-img" />
+                                <img src={heroHandImg} alt="Tsamaya App" className="popup-app-img" />
                             </div>
                             <div className="popup-right">
-                                <span className="hero-tagline" style={{ color: '#A31D1D', fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>Coming Soon</span>
+                                <span className="hero-tagline" style={{ color: '#12B5B0', fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>Coming Soon</span>
 
                                 {waitlistStep === 1 ? (
                                     <>
-                                        <h2>Join the Legae Waitlist</h2>
+                                        <h2>Get Your Transit Pass</h2>
                                         <p className="popup-desc">
-                                            Be the first professional to unlock the future of housing in Botswana.
-                                            By joining our waitlist, you'll get early access to verified listings.
+                                            Be the first to experience cashless public transit across Botswana. Join our priority list to receive your Tsamaya NFC Pass and early mobile app access.
                                         </p>
                                         <form className="popup-form" onSubmit={handleWaitlistSubmit}>
                                             <input
@@ -372,16 +891,16 @@ const LegaeLandingPage: React.FC = () => {
                                                 onChange={(e) => setWaitlistEmail(e.target.value)}
                                                 className="popup-input"
                                             />
-                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '1rem', background: '#2D1414' }}>
-                                                Join Waitlist
+                                            <button type="submit" className="try-free-btn" style={{ width: '100%', padding: '1rem', background: '#12B5B0' }}>
+                                                Get Your Transit Pass
                                             </button>
                                         </form>
                                     </>
                                 ) : (
                                     <>
-                                        <h2>One last thing...</h2>
+                                        <h2>One last step...</h2>
                                         <p className="popup-desc">
-                                            We'd love to keep you in the loop as we approach our launch date and beta testing phase.
+                                            We'll keep you updated on transit pass distributions, route rollouts, and beta access in your area.
                                         </p>
                                         <div className="consent-container" style={{ marginBottom: '2rem', display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                                             <input
@@ -392,7 +911,7 @@ const LegaeLandingPage: React.FC = () => {
                                                 style={{ marginTop: '5px', cursor: 'pointer', width: '20px', height: '20px' }}
                                             />
                                             <label htmlFor="email-consent" style={{ fontSize: '0.9rem', color: '#666', lineHeight: '1.4', cursor: 'pointer' }}>
-                                                I agree to receive emails from Legae regarding product launches, beta mode invitations, and exclusive updates.
+                                                I agree to receive updates from Tsamaya regarding card launches, beta rollout, and route expansions.
                                             </label>
                                         </div>
                                         <button
@@ -402,7 +921,7 @@ const LegaeLandingPage: React.FC = () => {
                                             style={{
                                                 width: '100%',
                                                 padding: '1rem',
-                                                background: agreedToEmails ? '#A31D1D' : '#ccc',
+                                                background: agreedToEmails ? '#12B5B0' : '#ccc',
                                                 cursor: agreedToEmails ? 'pointer' : 'not-allowed'
                                             }}
                                         >
@@ -410,7 +929,7 @@ const LegaeLandingPage: React.FC = () => {
                                         </button>
                                     </>
                                 )}
-                                <p className="popup-footer-text" style={{ marginTop: '1.5rem' }}>We promise not to spam you. Safety and discretion are our priorities.</p>
+                                <p className="popup-footer-text" style={{ marginTop: '1.5rem' }}>We respect your privacy. Bank-grade security and discretion guaranteed.</p>
                             </div>
                         </div>
                     </div>
@@ -422,7 +941,7 @@ const LegaeLandingPage: React.FC = () => {
                 <div className="popup-overlay privacy-modal-overlay" onClick={() => setShowPrivacy(false)}>
                     <div className="waitlist-popup privacy-popup" onClick={(e) => e.stopPropagation()}>
                         <button className="close-popup" onClick={() => setShowPrivacy(false)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M5 5l14 14M5 19l14 -14"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l14 0M5 19l14 0;M5 5l14 14M5 19l14 -14" /></path><path d="M12 12h0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12h14;M12 12h0" /><set fill="freeze" attributeName="opacity" begin="0.4s" to="0" /></path></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M5 5l14 14M5 19l14 -14"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l14 0M5 19l14 0;M5 5l14 14M5 19l14 -14" /></path><path d="M12 12h0"><animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12h14;M12 12h0" /><set fill="freeze" attributeName="opacity" begin="0.4s" to="0" /></path></g></svg>
                         </button>
                         <div className="privacy-content-wrapper" style={{ padding: '6rem 4rem 4rem 4rem' }}>
                             <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', color: '#1a1a1a', textAlign: 'left' }}>Privacy Policy</h2>
@@ -430,27 +949,27 @@ const LegaeLandingPage: React.FC = () => {
                             <div className="privacy-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', color: '#666', lineHeight: '1.7', fontSize: '0.95rem' }}>
                                 <div className="privacy-section">
                                     <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>1. Introduction</h3>
-                                    <p>Welcome to Legae. We respect your privacy and are committed to protecting your personal data. This policy informs you about how we handle your data when you visit our website or app.</p>
+                                    <p>Welcome to Tsamaya (tsamaya.co.bw). We respect your privacy and are committed to protecting your personal data and transit wallet information.</p>
                                 </div>
 
                                 <div className="privacy-section">
                                     <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>2. Data We Collect</h3>
-                                    <p>At this stage, we only collect and process your email address when you voluntarily provide it to join our waitlist.</p>
+                                    <p>We collect essential account information (such as email, phone number, and linked card identifiers) solely to facilitate safe contactless transit payments and account security.</p>
                                 </div>
 
                                 <div className="privacy-section">
                                     <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>3. How We Use Your Data</h3>
-                                    <p>We use your email address to share updates on our journey, invite you to our beta testing phase, and receive your valuable feedback to improve Legae before our official launch.</p>
+                                    <p>Your data is used to authenticate transactions, generate digital receipts, process mobile wallet top-ups, and provide real-time trip alerts.</p>
                                 </div>
 
                                 <div className="privacy-section">
-                                    <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>4. Data Security</h3>
-                                    <p>We have implement appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way.</p>
+                                    <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>4. Bank-Grade Security</h3>
+                                    <p>All wallet balances and sensitive tokens are encrypted in secure cloud storage. Funds never live directly on physical cards or device hardware.</p>
                                 </div>
 
                                 <div className="privacy-section" style={{ gridColumn: 'span 2' }}>
                                     <h3 style={{ color: '#1a1a1a', marginBottom: '1rem' }}>5. Your Legal Rights</h3>
-                                    <p>You have rights under data protection laws to request access, correction, or erasure of your personal data. Contact us to exercise these rights.</p>
+                                    <p>You have full rights under Botswana data protection laws to request access, correction, or erasure of your account information. Contact support@tsamaya.co.bw to manage your privacy settings.</p>
                                 </div>
                             </div>
                             <p style={{ marginTop: '3rem', textAlign: 'center', color: '#999', fontSize: '0.85rem' }}>Last updated: {new Date().toLocaleDateString()}</p>
@@ -463,3 +982,4 @@ const LegaeLandingPage: React.FC = () => {
 };
 
 export default LegaeLandingPage;
+

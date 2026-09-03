@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import './FlowersPage.css';
 import Footer from './Common/Footer';
 
@@ -87,7 +88,7 @@ const FlowersPage: React.FC = () => {
     const confirmWhatsAppOrder = () => {
         if (whatsappProduct) {
             const message = encodeURIComponent(`Hi Agape Florist, I would like to order: ${whatsappProduct}`);
-            window.open(`https://wa.me/26774731334?text=${message}`, '_blank');
+            window.open(`https://wa.me/26777593604?text=${message}`, '_blank');
             setWhatsappProduct(null);
         }
     };
@@ -196,6 +197,12 @@ const FlowersPage: React.FC = () => {
 
     return (
         <div className="flowers-page">
+            <SEO
+                title="Agape Florist & Decor | Flower Delivery Botswana | Wedding & Corporate Flowers"
+                description="Agape Florist & Decor offers exquisite floral arrangements and event decor in Botswana. Order romantic red roses, elegant lilies, sunflower bouquets, and custom wedding flowers. Same-day delivery in Gaborone, corporate flower arrangements, funeral decor, and gift sets."
+                keywords="florist Botswana, flower delivery Botswana, flower shop Gaborone, wedding flowers Botswana, funeral flowers, corporate flowers, event decor Botswana, bouquet delivery, Agape florist, roses Botswana, lily bouquet, sunflower bouquet, wedding decor, birthday flowers, flower arrangements, floral design Botswana, gift sets flowers, decor hire Botswana, flower shop Francistown, romantic flowers, sympathy flowers, artificial flowers, flower baskets Botswana"
+                url="/flowers"
+            />
             {/* Navbar */}
             <nav className="flower-nav">
                 <div className="nav-container">

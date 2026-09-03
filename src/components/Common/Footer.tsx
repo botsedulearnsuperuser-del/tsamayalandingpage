@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ setShowPrivacy }) => {
                     <h4>Contact Us</h4>
                     <ul>
                         <li><a href="#">Plot 1234, Gaborone West</a></li>
-                        <li><a href="tel:+26774731334">+267 74 731 334</a></li>
+                        <li><a href="tel:+26777593604">+267 77 593 604</a></li>
                         <li><a href="mailto:info@agape.co.bw">info@agape.co.bw</a></li>
                         <li><a href="#">Botswana</a></li>
                     </ul>
@@ -52,7 +52,7 @@ const Footer: React.FC<FooterProps> = ({ setShowPrivacy }) => {
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><g fill="none"><g clipPath="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
                     </a>
-                    <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/26777593604" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                     </a>
                     <p className="developed-by">Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer">DevGenTechnologies</a></p>

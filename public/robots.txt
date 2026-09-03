@@ -1,0 +1,15 @@
+# Tsamaya Cashless Transit - Robots.txt
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tsamaya.co.bw/sitemap.xml
+
+# Crawl-delay (optional, for polite bots)
+Crawl-delay: 1
+
+# Disallow admin/confirmation pages
+Disallow: /account-confirmed
+Disallow: /signup
+Disallow: /signin

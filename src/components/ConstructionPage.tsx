@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import './ConstructionPage.css';
 import Footer from './Common/Footer';
 
@@ -68,6 +69,12 @@ const ConstructionPage: React.FC = () => {
 
     return (
         <div className="construction-page">
+            <SEO
+                title="Construction Services Botswana | Residential, Commercial & Civil Works | Agape Construction"
+                description="Agape Construction delivers expert building services across Botswana. Custom home builds, modern housing estates, commercial projects, and civil works. Quality craftsmanship, premium materials, and timely delivery in Gaborone, Francistown, and beyond."
+                keywords="construction Botswana, building company Botswana, residential development Botswana, home builder Gaborone, commercial construction, civil works Botswana, construction company Francistown, house building Botswana, construction services Africa, Agape construction, property development Botswana, construction projects Botswana, custom home build, housing estate Botswana, infrastructure development, road construction Botswana, building contractor, construction firm Botswana"
+                url="/construction"
+            />
             {/* Standard Agape Header */}
             <nav className="agape-nav">
                 <div className="nav-container">

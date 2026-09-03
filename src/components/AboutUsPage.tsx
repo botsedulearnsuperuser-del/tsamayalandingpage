@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from './SEO';
 import './LandingPage/LegaeLandingPage.css';
 
 const AboutUsPage: React.FC = () => {
@@ -71,6 +72,12 @@ const AboutUsPage: React.FC = () => {
 
     return (
         <div className="legae-landing" style={{ paddingTop: '8rem' }}>
+            <SEO
+                title="About Agape Group | Our Vision, Mission & Specialized Sectors in Botswana"
+                description="Learn about Agape Group - a trusted Botswana company driven by excellence and built on trust. We specialize in transport, construction, security, and florist & decor services. Lady-driven care, reliability, and community focus across Gaborone and Francistown."
+                keywords="Agape Group Botswana, about Agape Group, Botswana company, Agape Group Gaborone, Agape Group vision, Agape Group mission, transport company Botswana, construction company Botswana, security company Botswana, florist Botswana, lady-driven transport, community focused Botswana, Botswana business, lady-driven care, Agape Group Francistown, Botswana enterprises, trusted company Botswana, reliable services Botswana, Agape Group about, Botswana industries"
+                url="/about"
+            />
             {/* Navigation */}
             <nav className="navbar">
                 <div className="logo" style={{ marginTop: '0', paddingTop: '0' }}>
@@ -93,7 +100,7 @@ const AboutUsPage: React.FC = () => {
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
                         </a>
-                        <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
+                        <a href="https://wa.me/26777593604" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                     </div>
@@ -204,7 +211,7 @@ const AboutUsPage: React.FC = () => {
 
                 <div style={{ textAlign: 'center', marginTop: '4rem', background: '#FDF2F2', padding: '3rem', borderRadius: '0' }}>
                     <h3 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#A31D1D' }}>Get in touch for any of our services</h3>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Call us: (+267) 74 731 334</p>
+                    <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>Call us: (+267) 77 593 604</p>
                     <button className="try-free-btn" onClick={() => setShowWaitlist(true)}>Contact Us Now</button>
                 </div>
             </section>
@@ -238,7 +245,7 @@ const AboutUsPage: React.FC = () => {
                         <h4>Contact Us</h4>
                         <ul>
                             <li><a href="#">Plot 1234, Gaborone West</a></li>
-                            <li><a href="tel:+26774731334">+267 74 731 334</a></li>
+                            <li><a href="tel:+26777593604">+267 77 593 604</a></li>
                             <li><a href="mailto:info@agape.co.bw">info@agape.co.bw</a></li>
                             <li><a href="#">Botswana</a></li>
                         </ul>
@@ -256,7 +263,7 @@ const AboutUsPage: React.FC = () => {
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="currentColor" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z" /></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z" /></clipPath></defs></g></svg>
                         </a>
-                        <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
+                        <a href="https://wa.me/26777593604" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
 
@@ -290,13 +297,13 @@ const AboutUsPage: React.FC = () => {
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '0.5rem' }}>
                                             <p style={{ fontSize: '0.85rem', color: '#666', margin: 0 }}>Reach us via:</p>
                                             <div className="contact-row" style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'nowrap' }}>
-                                                <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', color: '#25D366', whiteSpace: 'nowrap' }}>
+                                                <a href="https://wa.me/26777593604" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', color: '#25D366', whiteSpace: 'nowrap' }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12.043 6.925a4.985 4.985 0 0 0-4.98 4.979c-.001.94.263 1.856.761 2.649l.118.188l-.503 1.837l1.885-.494l.181.108a4.97 4.97 0 0 0 2.535.693h.001a4.986 4.986 0 0 0 4.979-4.978a4.95 4.95 0 0 0-1.456-3.522a4.95 4.95 0 0 0-3.521-1.46m2.928 7.118c-.125.35-.723.668-1.01.711a2.04 2.04 0 0 1-.943-.059a9 9 0 0 1-.853-.315c-1.502-.648-2.482-2.159-2.558-2.26c-.074-.1-.61-.812-.61-1.548c0-.737.386-1.099.523-1.249a.55.55 0 0 1 .4-.186c.1 0 .199.001.287.005c.092.004.215-.035.336.257c.125.3.425 1.036.462 1.111s.062.162.013.262c-.05.101-.074.162-.15.25c-.074.088-.157.195-.224.263c-.075.074-.153.155-.066.305c.088.149.388.64.832 1.037c.572.51 1.055.667 1.204.743c.15.074.237.063.325-.038c.087-.101.374-.437.474-.586c.1-.15.199-.125.337-.076c.137.051.873.412 1.022.487c.148.074.249.112.287.175c.036.062.036.361-.088.711" /><path fill="currentColor" d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m-7.96 14.896h-.002a6 6 0 0 1-2.862-.729L6 18l.85-3.104a5.99 5.99 0 0 1 5.19-8.983a5.95 5.95 0 0 1 4.238 1.757a5.95 5.95 0 0 1 1.751 4.237a6 6 0 0 1-5.989 5.989" /></svg>
-                                                    <span style={{ fontWeight: '600', fontSize: '0.8rem' }}>(+267) 74 731 334</span>
+                                                    <span style={{ fontWeight: '600', fontSize: '0.8rem' }}>(+267) 77 593 604</span>
                                                 </a>
-                                                <a href="tel:+26774731334" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', color: '#1a1a1a', whiteSpace: 'nowrap' }}>
+                                                <a href="tel:+26777593604" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', color: '#1a1a1a', whiteSpace: 'nowrap' }}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m20 4l-2 2m4 4.5l-2.5-.5m-6-8l.5 2.5M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C9.928 20.51 3.49 14.072 3 6a2 2 0 0 1 2-2" /></svg>
-                                                    <span style={{ fontWeight: '600', fontSize: '0.8rem' }}>(+267) 74 731 334</span>
+                                                    <span style={{ fontWeight: '600', fontSize: '0.8rem' }}>(+267) 77 593 604</span>
                                                 </a>
                                             </div>
                                         </div>

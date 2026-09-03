@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import './GalleriesPage.css';
 
 const GalleriesPage: React.FC = () => {
@@ -29,6 +30,12 @@ const GalleriesPage: React.FC = () => {
 
     return (
         <div className="flowers-page gallery-mode">
+            <SEO
+                title="Florist & Decor Gallery | Agape Group Botswana | Floral Arrangements & Event Decor Portfolio"
+                description="Browse Agape Florist & Decor's portfolio of stunning floral arrangements and event decor in Botswana. Wedding flowers, funeral decor, corporate office blooms, special event arrangements, and luxury floral design in Gaborone and Francistown."
+                keywords="florist gallery Botswana, floral arrangements gallery, wedding flowers Botswana, funeral decor Botswana, corporate flowers gallery, event decor portfolio, Agape florist gallery, flower design Botswana, floral art Botswana, Gaborone florist, wedding decor gallery, special event flowers, luxury floral design, flower arrangements Gaborone, botanical decor, floral portfolio Botswana, flower shop gallery, Agape Group gallery"
+                url="/galleries"
+            />
             {/* Header consistent with FlowersPage */}
             <nav className="flower-nav">
                 <div className="nav-container">
@@ -122,7 +129,7 @@ const GalleriesPage: React.FC = () => {
                         <h4 style={{ marginBottom: '1.5rem', fontWeight: '700' }}>Contact Us</h4>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             <li style={{ marginBottom: '0.75rem' }}><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Plot 1234, Gaborone West</a></li>
-                            <li style={{ marginBottom: '0.75rem' }}><a href="tel:+26774731334" style={{ textDecoration: 'none', color: '#666' }}>+267 74 731 334</a></li>
+                            <li style={{ marginBottom: '0.75rem' }}><a href="tel:+26777593604" style={{ textDecoration: 'none', color: '#666' }}>+267 77 593 604</a></li>
                             <li style={{ marginBottom: '0.75rem' }}><a href="mailto:info@agape.co.bw" style={{ textDecoration: 'none', color: '#666' }}>info@agape.co.bw</a></li>
                             <li style={{ marginBottom: '0.75rem' }}><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Botswana</a></li>
                         </ul>
@@ -137,7 +144,7 @@ const GalleriesPage: React.FC = () => {
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" d="M14.5 0h-13C.675 0 0 .675 0 1.5v13c0 .825.675 1.5 1.5 1.5h13c.825 0 1.5-.675 1.5-1.5v-13c0-.825-.675-1.5-1.5-1.5M11 2.5c0-.275.225-.5.5-.5h2c.275 0 .5.225.5.5v2c0 .275-.225.5-.5.5h-2a.5.5 0 0 1-.5-.5zM8 5a3.001 3.001 0 0 1 0 6a3.001 3.001 0 0 1 0-6m6 8.5c0 .275-.225.5-.5.5h-11a.5.5 0 0 1-.5-.5V7h1.1A5 5 0 0 0 8 13a5 5 0 0 0 4.9-6H14z" /></svg>
                         </a>
-                        <a href="https://wa.me/26774731334" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
+                        <a href="https://wa.me/26777593604" target="_blank" rel="noopener noreferrer" style={{ color: '#000000', display: 'flex' }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 12 12"><path fill="currentColor" d="M6 0a6 6 0 1 1-3.002 11.196l-2.34.778a.5.5 0 0 1-.632-.632l.78-2.339A6 6 0 0 1 6 0M3.932 3.003a.52.52 0 0 0-.394.2c-.135.158-.516.543-.516 1.325c0 .783.529 1.54.603 1.646c.073.104 1.041 1.71 2.522 2.4q.413.192.84.335c.354.12.677.104.932.064c.284-.045.873-.384.996-.757c.122-.37.122-.689.085-.755s-.135-.107-.284-.188a24 24 0 0 0-1.008-.516c-.135-.054-.234-.08-.332.08c-.099.159-.38.518-.467.624c-.085.103-.172.118-.32.039s-.623-.248-1.187-.79a4.7 4.7 0 0 1-.82-1.102c-.088-.16-.01-.245.063-.325c.067-.07.148-.185.222-.279c.073-.09.099-.157.148-.264c.049-.106.024-.2-.013-.278c-.037-.08-.332-.864-.456-1.183c-.12-.31-.241-.266-.332-.272c-.085-.004-.183-.004-.282-.004" /></svg>
                         </a>
                         <p>Developed by <a href="https://devgenbotswana.co.bw" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--legae-red)', fontWeight: '600', textDecoration: 'none' }}>DevGenTechnologies</a></p>

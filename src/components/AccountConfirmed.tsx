@@ -1,16 +1,22 @@
 import React, { useEffect } from 'react';
+import SEO from './SEO';
 import './AccountConfirmed.css';
 
 const AccountConfirmed: React.FC = () => {
     const brandLogo = '/assets/legaemobile/LOGOS WORKFILE (48) 1.png';
 
     useEffect(() => {
-        // You could add analytics or other side-effects here
-        document.title = "Account Confirmed | Legae";
+        document.title = "Account Confirmed | Tsamaya";
     }, []);
 
     return (
         <div className="account-confirmed-container">
+            <SEO
+                title="Account Confirmed | Tsamaya Transit"
+                description="Your Tsamaya account has been successfully confirmed. You can now use your Tsamaya NFC Transit Pass and Mobile App for cashless public transit payments in Botswana."
+                keywords="Tsamaya account confirmed, Tsamaya signup complete, transit account active, cashless transit Botswana, NFC transit pass ready"
+                url="/account-confirmed"
+            />
             <div className="background-gradient"></div>
             
             <nav className="minimal-nav">

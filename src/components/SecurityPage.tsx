@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import './ConstructionPage.css';
 import Footer from './Common/Footer';
 
@@ -46,6 +47,12 @@ const SecurityPage: React.FC = () => {
 
     return (
         <div className="security-page">
+            <SEO
+                title="Security Services Botswana | Manned Guarding, CCTV & Access Control | Agape Security"
+                description="Agape Security provides professional security solutions in Botswana. Trained manned guarding, CCTV surveillance systems, and advanced access control for industrial, commercial, and residential properties. Rapid response and tailored strategies across Gaborone and Francistown."
+                keywords="security services Botswana, security company Botswana, manned guarding Botswana, CCTV surveillance, access control Botswana, security guards Gaborone, industrial security, commercial security, residential security, security firm Botswana, Agape security, protection services Botswana, security solutions Africa, security patrol Botswana, event security, security risk management, surveillance systems Botswana, alarm monitoring, security consulting Botswana"
+                url="/security"
+            />
             {/* Standard Agape Header */}
             <nav className="agape-nav">
                 <div className="nav-container">

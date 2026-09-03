@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SEO from './SEO';
 import './TransportPage.css';
 import Footer from './Common/Footer';
 
@@ -43,6 +44,12 @@ const TransportPage: React.FC = () => {
 
     return (
         <div className="transport-page">
+            <SEO
+                title="Transport & Logistics Services Botswana | Cross-Border Freight, School Runs & Executive Chauffeur"
+                description="Agape Group provides professional transport and logistics services in Botswana. Cross-border freight across SADC, safe school transport with lady-driven care, and VIP executive chauffeur services. Reliable fleet solutions for businesses and families across Gaborone and Francistown."
+                keywords="transport Botswana, logistics Botswana, cross-border logistics SADC, freight transport Botswana, school transport Botswana, school bus Botswana, combi transport Botswana, lady-driven transport, VIP chauffeur Botswana, executive transport Gaborone, cargo transport Botswana, student school runs, safe school transport, transport company Botswana, logistics company Gaborone, freight company Botswana, transport services Africa, Agape transport, transport Gaborone, transport Francistown, vehicle fleet Botswana, commercial transport, residential transport, SADC logistics, customs clearance Botswana, transport and logistics Africa"
+                url="/transport"
+            />
             {/* Standard Agape Header */}
             <nav className="agape-nav">
                 <div className="nav-container">
