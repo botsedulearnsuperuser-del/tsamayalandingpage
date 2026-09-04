@@ -33,6 +33,7 @@ export default function SEO({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
+      <meta name="theme-color" content="#12B5B0" />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

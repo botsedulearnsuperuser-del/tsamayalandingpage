@@ -18,7 +18,7 @@ Comprehensive SEO overhaul to ensure **Tsamaya** and **transport payment Botswan
 ### 2. `index.html` — Enhanced Base Meta Tags
 - Added **40+ keywords** targeting Tsamaya, cashless transit, NFC pass, combi/bus/taxi payment, Botswana transport, Gaborone, student transit, school transport, Orange Money, BTC SMEGA, Mascom MyZaka, Visa/Mastercard
 - Added `<meta name="robots">` with `index, follow, max-snippet:-1, max-image-preview:large`
-- Added `<meta name="theme-color">` for mobile browsers
+- Added `<meta name="theme-color" content="#12B5B0">` for mobile browsers (matching Tsamaya teal buttons)
 - Added `<meta name="geo.region">`, `geo.country`, `geo.placename` for Botswana
 - Added canonical URL
 - Added **4 JSON-LD structured data blocks**:
