@@ -12,7 +12,7 @@ interface SEOProps {
 
 const SITE_NAME = 'Tsamaya - Cashless Transit Botswana';
 const DEFAULT_IMAGE = '/assets/legaemobile/LOGOS WORKFILE (48) 1.png';
-const BASE_URL = 'https://tsamaya.co.bw';
+const BASE_URL = 'https://www.tsamaya.co.bw';
 
 export default function SEO({
   title,
