@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = 'Tsamaya - Cashless Transit Botswana';
-const DEFAULT_IMAGE = '/assets/legaemobile/LOGOS WORKFILE (48) 1.png';
+const DEFAULT_IMAGE = '/assets/NFCCARDS/tsamaya_nfc_card_4.jpg';
 const BASE_URL = 'https://www.tsamaya.co.bw';
 
 export default function SEO({
