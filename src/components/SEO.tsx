@@ -25,15 +25,18 @@ export default function SEO({
 }: SEOProps) {
   const fullTitle = title.includes('Tsamaya') ? title : `${title} | Tsamaya`;
   const canonicalUrl = url ? `${BASE_URL}${url}` : BASE_URL;
-  const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`;
+  const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${encodeURI(image)}`;
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="author" content="Tsamaya" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <link rel="canonical" href={canonicalUrl} />
       <meta name="theme-color" content="#12B5B0" />
+      <html lang="en" />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

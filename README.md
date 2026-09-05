@@ -75,3 +75,4 @@ export default defineConfig([
 
 
 
+and make sure that teh road touches both sides on teh screen on mobi ephone view please , 
